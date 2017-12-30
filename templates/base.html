@@ -1,0 +1,75 @@
+
+<!DOCTYPE HTML>
+<html lang"en">
+
+<head>
+
+{% load static %}
+
+{# Load tag library, CSS and JS from bootstrap #}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+<link href="https://fonts.googleapis.com/css?family=Bitter|Fira+Sans|Lato" rel="stylesheet">
+
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"></script>
+<link rel="stylesheet" type"text/css" href="{% static 'mysite/style.css' %}" />
+
+{% block css %}{% endblock %}
+
+
+
+</head>
+
+
+{% block topmenu %}
+
+<div class="topmenu">
+<div class="row">
+  <div class="col-sm-12">
+  <ul>
+    <li><a href="{% url 'home' %}"><b>HOME</b></a></li>
+    <li><a href="{% url 'hindsight1:play' %}">GAME</a></li>	  
+    <li><a href="{% url 'blog:index' %}">BLOG</a></li>	
+	
+	{% if user.is_authenticated %}
+	<li style="float:right"><a  href="{% url 'hindsight1:performance' %}">{{ user.username }}: profile</a></li>
+    <li style="float:right"><a  href="{% url 'logout' %}">logout</a></li>	    
+	{% else %}
+    <li style="float:right"><a  href="{% url 'login' %}"><i class="glyphicon glyphicon-user"></i>login</a></li>
+    <li style="float:right"><a  href="{% url 'signup' %}">sign up</a></li>	
+	{% endif %}
+	
+  </ul>
+  </div>
+</div>
+</div>
+
+{% endblock topmenu %}
+
+{% block subtopmenu %}
+{% endblock subtopmenu %}
+
+<body>
+
+{% block content %}
+{% endblock content %}
+
+
+</body>
+
+{% block footer %}
+<footer>
+<p>Hi, my name is Cristobal, and Django is most commonly used to develop websites, however, it is very useful for developing simpler web apps, which you can use to set up reporting tools, calculation and charting platforms, etc. This means you can design a standalone app in your work and serve it to users via a web interface, which has a lot of advantages over traditional desktop apps. And the benefit of Django is it immensely simplifies the development process, to the point an intermediate knowledge of Python will allow you to create very professional looking and highly capable apps.
+</p>
+</footer>
+{% endblock footer %}
+
+{% block javascript %}{% endblock %}
+
+</html>

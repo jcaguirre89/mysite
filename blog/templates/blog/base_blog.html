@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type"text/css" href="{% static 'blog/markdown.css' %}" />
+<link rel="stylesheet" type"text/css" href="{% static 'blog/blog.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
+
+{% endblock %}
+
+
+
+{% block content %}
+<div id="content">
+    <button type="button" id="sidebarCollapse" class="btn btn-primary navbar-btn">
+        <i class="glyphicon glyphicon-align-left"></i>
+        Topics
+    </button>
+</div>
+
+
+<div class="main-container">
+<nav id="sidebar">
+
+<div class="wrap">
+   <div class="search">
+     <form action="{% url 'blog:search' %}" method="get" accept-charset="utf-8">
+	  <input type="text" name="q" class="searchTerm" placeholder="Search posts">
+	  <button type="submit" class="searchButton">
+		<i class="glyphicon glyphicon-search"></i>
+	  </button>
+	 </form>
+   </div>
+</div
+
+	<!-- Sidebar Links -->
+	<ul class="list-unstyled components">
+		<li class="active"><a href="{% url 'blog:index' %}">All Topics</a></li>
+		<li><a href="{% url 'blog:topic' 'Lifestyle' %}">Travel &amp; Lifestyle</a></li>
+		<li><a href="{% url 'blog:topic' 'Django' %}">Django</a></li>
+		<li><a href="{% url 'blog:topic' 'Photography' %}">Photography</a></li>
+	</ul>
+
+
+</nav>
+
+
+{% block post %}
+
+{% endblock post %}
+
+
+</div>
+{% endblock content %}
+
+{% block javascript %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="{% static 'blog/blog.js' %}"></script>
+{% endblock javascript %}

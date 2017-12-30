@@ -1,0 +1,57 @@
+{% extends "./base.html" %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type"text/css" href="{% static 'hindsight1/style.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-10">
+  {{ chart_div|safe }}
+</div>
+<div class="col-sm-1"></div>
+</div>
+
+
+ <ul>
+  {% for key, value in company_sector.items %}
+	<li> {{ key }} </li>
+    <li>Company {{ forloop.counter }} Sector: {{ value }} </li>
+  {% endfor %} 
+</ul>
+
+
+<p>Date: {{ date }}</p>
+ 
+<br>
+ 
+<div class="row">
+<div class="col-sm-3"></div>
+<div class="col-sm-6">
+ 
+<div>
+  <form action="" method="post">{% csrf_token %}
+    {{ formset.management_form }}
+
+	<table>
+    {% for form in formset %}
+	<tr>
+      <td>{{ form.as_p }}</td>
+	</tr>
+    {% endfor %}
+	
+	<table>
+	
+	<input type="hidden" name="play_id" value="{{ play_id }}" >
+    <input type="submit" value="Submit Allocation" >
+  </form>
+</div>
+</div>
+<div class="col-sm-3"></div>
+</div>
+
+{% endblock %}

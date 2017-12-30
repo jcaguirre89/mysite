@@ -1,0 +1,103 @@
+{% extends "hindsight1/base_hindsight1.html" %}
+{% load humanize %}
+{% load static %}
+
+{% block content %}
+
+<div id="slider"></div>
+
+
+<p>Date: {{ date }}</p>
+<br>
+
+<p>Current Capital: {{ capital|intcomma }}</p>
+
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-6">
+  {{ chart_div|safe }}
+</div>
+</div>
+
+
+
+<div class="col-md-6">
+<form action="" method="post">{% csrf_token %}
+{{ form.non_field_errors }}
+<table>
+  <tr>
+  <div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <th><label for="{{ form.company_1.id_for_label }}">Company 1:</label></th>
+    <td>Sector: {{ company_sector.0 }}</td>
+    <td>Industry: {{ company_industry.0 }}</td>
+	<td> Weight: </td>
+	<td>{{ form.company_1 }}</td>
+  </div>
+  </tr>
+  <tr>
+  <div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <th><label for="{{ form.company_2.id_for_label }}">Company 2:</label></th>
+    <td>Sector: {{ company_sector.1 }}</td>
+    <td>Industry: {{ company_industry.1}}</td>
+	<td> Weight: </td>
+	<td>{{ form.company_2 }}</td>
+  </div>
+  </tr>
+  <tr>
+  <div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <th><label for="{{ form.company_3.id_for_label }}">Company 3:</label></th>
+    <td>Sector: {{ company_sector.2 }}</td>
+    <td>Industry: {{ company_industry.2 }}</td>
+	<td> Weight: </td>
+	<td>{{ form.company_3 }}</td>
+  </div>
+  </tr>
+  <tr>
+  <div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <th><label for="{{ form.company_4.id_for_label }}">Company 4:</label></th>
+    <td>Sector: {{ company_sector.3 }}</td>
+    <td>Industry: {{ company_industry.3 }}</td>
+	<td> Weight: </td>
+	<td>{{ form.company_4 }}</td>
+  </div>
+  </tr>
+  <tr>
+  <div class="fieldWrapper">
+    {{ form.subject.errors }}
+    <th><label for="{{ form.company_5.id_for_label }}">Company 5:</label></th>
+    <td>Sector: {{ company_sector.4 }}</td>
+    <td>Industry: {{ company_industry.4 }}</td>
+	<td> Weight: </td>
+	<td>{{ form.company_5 }}</td>
+	</div>
+  </tr>
+</table>
+  
+<input type="hidden" name="play_id" value="{{ play_id }}" >
+<input type="submit" value="Submit Allocation" >
+</form>
+
+
+
+</div>
+</div>
+
+</div>
+
+
+{% endblock %}
+
+{% block javascript %}
+
+$( "#slider" ).slider({
+    value: $('#id_company_1').value(),    // set value when updating
+    change: function( event, ui ) {
+        $('#id_company_1').value(ui.value);
+    }
+});
+
+{% endblock javascript %}

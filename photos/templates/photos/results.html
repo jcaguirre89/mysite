@@ -1,0 +1,16 @@
+{# Load tag library, CSS and JS from bootstrap #}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<h1>{{ question.question_text }}</h1>
+
+<ul>
+{% for choice in question.choice_set.all %}
+  <li>{{choice.choice_text }} -- {{choice.votes }} vote{{choice.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'photos:detail' question.id %}">Vote Again?</a>
+<br>
+<a href="{% url 'photos:index' %}">Go back to Index page</a>

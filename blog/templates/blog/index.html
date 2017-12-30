@@ -1,0 +1,45 @@
+{% extends "blog/base_blog.html" %}
+{% load static %}
+{% load markdownify %}
+{% load humanize %}
+
+
+{% block post %}
+
+
+<div class="posts-index">
+
+{% for post in posts %}
+
+<div class="post-container">
+  <div class="thumbnail">
+    <img src="{{ post.image.url }}" />
+  </div>
+  <div class="post-details">
+    <h3><a href="{% url 'blog:detail' post.id %}" id="post-title">{{ post.post_title }}</a></h3>
+    <p id="summary">{{post.summary }}</p>
+    <p id="extra-info">Topic: {{post.topic }} - Published: {{post.pub_date }}</p>  
+	{% if post.tags %}
+	<ul id="tags">
+      <li><a href="{% url 'blog:tags' post.tags.0 %}">{{ post.tags.0 }}</a></li>
+	  <li><a href="{% url 'blog:tags' post.tags.1 %}">{{ post.tags.1 }}</a></li>
+	  <li><a href="{% url 'blog:tags' post.tags.2 %}">{{ post.tags.2 }}</a></li>
+	</ul>
+	{% endif %}
+  </div>
+  
+  
+</div>
+
+  
+{% endfor %}
+
+
+
+</div>
+
+
+{% endblock post %}
+ 
+
+

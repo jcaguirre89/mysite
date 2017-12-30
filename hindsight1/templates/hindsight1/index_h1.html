@@ -1,0 +1,23 @@
+{% load static %}
+
+{# Load tag library, CSS and JS from bootstrap #}
+{% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
+<link rel="stylesheet" type"text/css" href="{% static 'hindsight1/style.css' %}" />
+
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-10">
+    <h1>Index page for hindsight app</h1>
+  </div>
+ </div>
+	
+<form method="post" action="">{% csrf_token %}
+    Hello, World! The sine of {{ form.r }}
+    <input type="submit" value="equals" />
+</form>
+
+

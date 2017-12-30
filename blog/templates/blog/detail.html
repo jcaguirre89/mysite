@@ -1,0 +1,24 @@
+{% extends "blog/base_blog.html" %}
+{% load static %}
+{% load markdownify %}
+
+
+{% block post %}
+
+<div class="post-content">
+
+<h2>{{ post.post_title }}</h2>
+
+<div class="highlight">
+<p>{{ post.text | markdown | safe }}</p>
+</div>
+<p>Created: {{ post.created_at }}</p>
+
+<p>Last update: {{ post.last_update }}</p>
+
+</div>
+
+
+
+{% endblock post %}
+ 

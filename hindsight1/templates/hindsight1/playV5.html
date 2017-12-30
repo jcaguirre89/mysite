@@ -1,0 +1,62 @@
+{% extends "hindsight1/base_hindsight1.html" %}
+{% load humanize %}
+{% load static %}
+
+{% block extra_head %}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.js"></script>
+
+{% endblock extra_head %}
+
+{% block content %}
+
+
+<div class="slider-list">
+
+<form action="" method="post">{% csrf_token %}
+
+{{ form.as_ul }}
+
+<table>
+  <tr>
+    <td>Total Allocation: <output id="js-result"></output></td>
+	<td><input type="submit" value="Submit Allocation" ></td>
+  </tr>
+</table>
+
+  
+<input type="hidden" name="play_id" value="{{ play_id }}" >
+
+</form>
+</div>
+  
+<div class="main-game">
+<div>  
+{{ chart_div|safe }}
+</div>
+<div>
+<table>
+  <tr>
+    <th>Company</th>
+    <th>Sector</th>
+    <th>Industry</th>
+  </tr>
+  {% for company, items in data.items %}
+  <tr>
+    <th>Company {{ forloop.counter }} </th>
+    <td>Sector: {{ items.sector }}</td>
+    <td>Industry: {{ items.industry }}</td>
+  </tr>
+  {% endfor %}
+</table>
+</div>
+</div>
+
+{% endblock %}
+
+{% block javascript %}
+<script src="{% static 'hindsight1/hindsight1.js' %}"></script>
+
+{% endblock javascript %}

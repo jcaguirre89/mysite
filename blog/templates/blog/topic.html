@@ -1,0 +1,34 @@
+{% extends "blog/base_blog.html" %}
+{% load static %}
+{% load markdownify %}
+
+
+{% block post %}
+<div class="post-container">
+
+<div class="container-fluid">
+
+
+{% for post in topic %}
+
+<div class="row">
+<div class="col-md-8 col-md-offset-2">
+
+  <h3><a href="{% url 'blog:detail' post.id %}" id="post-title">{{ post.post_title }}</a></h3>
+  <p id="summary">{{post.summary }}</p>
+  <p id="extra-info">Topic: {{post.topic }} - Published: {{post.created_at }}</p>  
+
+</div>
+</div>
+  
+{% endfor %}
+
+
+
+</div>
+
+</div>
+{% endblock post %}
+ 
+
+

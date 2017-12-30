@@ -1,0 +1,19 @@
+{% extends "hindsight1/base_hindsight1.html" %}
+{% load humanize %}
+
+
+{% block content %}
+
+<div class="row">
+<div class="col-md-2 col-md-offset-5">
+
+<ol>
+  {% for player in rank %}
+    <li>{{ player.user }}: ${{ player.capital|floatformat:0|intcomma }}</li>
+  {% endfor %} 
+</ol>
+
+</div>
+</div>
+
+{% endblock content %}

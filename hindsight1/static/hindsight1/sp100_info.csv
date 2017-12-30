@@ -1,0 +1,103 @@
+ticker,security,sector,industry,isin
+AAPL,Apple Inc.,Information Technology,"Technology Hardware, Storage & Peripherals",US0378331005
+MSFT,Microsoft Corp.,Information Technology,Systems Software,US5949181045
+AMZN,Amazon.com Inc,Consumer Discretionary,Internet & Direct Marketing Retail,US0231351067
+FB,"Facebook, Inc.",Information Technology,Internet Software & Services,US30303M1027
+JNJ,Johnson & Johnson,Health Care,Health Care Equipment,US4781601046
+BRK_B,Berkshire Hathaway,Financials,Multi-Sector Holdings,US0846707026
+XOM,Exxon Mobil Corp.,Energy,Integrated Oil & Gas,US30231G1022
+JPM,JPMorgan Chase & Co.,Financials,Diversified Banks,US46625H1005
+GOOGL,Alphabet Inc Class A,Information Technology,Internet Software & Services,US02079K3059
+GOOG,Alphabet Inc Class C,Information Technology,Internet Software & Services,US02079K1079
+BAC,Bank of America Corp,Financials,Diversified Banks,US0605051046
+WFC,Wells Fargo,Financials,Diversified Banks,US9497461015
+PG,Procter & Gamble,Consumer Staples,Personal Products,US7427181091
+CVX,Chevron Corp.,Energy,Integrated Oil & Gas,US1667641005
+INTC,Intel Corp.,Information Technology,Semiconductors,US4581401001
+PFE,Pfizer Inc.,Health Care,Pharmaceuticals,US7170811035
+T,AT&T Inc,Telecommunication Services,Integrated Telecommunication Services,US00206R1023
+V,Visa Inc.,Information Technology,Internet Software & Services,US92826C8394
+UNH,United Health Group Inc.,Health Care,Managed Health Care,US91324P1021
+HD,Home Depot,Consumer Discretionary,Home Improvement Retail,US4370761029
+C,Citigroup Inc.,Financials,Diversified Banks,US1729674242
+KO,Coca-Cola Company(The),Consumer Staples,Soft Drinks,US1912161007
+VZ,Verizon Communications,Telecommunication Services,Integrated Telecommunication Services,US92343V1044
+CMCSA,Comcast Corp.,Consumer Discretionary,Cable & Satellite,US20030N1019
+CSCO,Cisco Systems,Information Technology,Communications Equipment,US17275R1023
+PEP,PepsiCo Inc.,Consumer Staples,Soft Drinks,US7134481081
+DWDP,DowDuPont,Materials,Diversified Chemicals,US26078J1007
+PM,Philip Morris International,Consumer Staples,Tobacco,US7181721090
+DIS,The Walt Disney Company,Consumer Discretionary,Cable & Satellite,US2546871060
+GE,General Electric,Industrials,Industrial Conglomerates,US3696041033
+ABBV,AbbVie Inc.,Health Care,Pharmaceuticals,US00287Y1091
+MRK,Merck & Co.,Health Care,Pharmaceuticals,US58933Y1055
+ORCL,Oracle Corp.,Information Technology,Application Software,US68389X1054
+BA,Boeing Company,Industrials,Aerospace & Defense,US0970231058
+MA,Mastercard Inc.,Information Technology,Internet Software & Services,US57636Q1040
+MMM,3M Company,Industrials,Industrial Conglomerates,US88579Y1010
+MCD,McDonald's Corp.,Consumer Discretionary,Restaurants,US5801351017
+WMT,Wal-Mart Stores,Consumer Staples,Hypermarkets & Super Centers,US9311421039
+IBM,International Business Machines,Information Technology,IT Consulting & Other Services,US4592001014
+MO,Altria Group Inc,Consumer Staples,Tobacco,US02209S1033
+AMGN,Amgen Inc,Health Care,Biotechnology,US0311621009
+HON,Honeywell Int'l Inc.,Industrials,Industrial Conglomerates,US4385161066
+MDT,Medtronic plc,Health Care,Health Care Equipment,IE00BTN1Y115
+BMY,Bristol-Myers Squibb,Health Care,Health Care Distributors,US1101221083
+QCOM,QUALCOMM Inc.,Information Technology,Semiconductors,US7475251036
+TXN,Texas Instruments,Information Technology,Semiconductors,US8825081040
+ABT,Abbott Laboratories,Health Care,Health Care Equipment,US0028241000
+UNP,Union Pacific,Industrials,Railroads,US9078181081
+GILD,Gilead Sciences,Health Care,Biotechnology,US3755581036
+ACN,Accenture plc,Information Technology,IT Consulting & Other Services,IE00B4BNMY34
+UTX,United Technologies,Industrials,Aerospace & Defense,US9130171096
+SLB,Schlumberger Ltd.,Energy,Oil & Gas Equipment & Services,AN8068571086
+GS,Goldman Sachs Group,Financials,Investment Banking & Brokerage,US38141G1040
+PCLN,Priceline.com Inc,Consumer Discretionary,Internet & Direct Marketing Retail,US7415034039
+PYPL,PayPal,Information Technology,Data Processing & Outsourced Services,US70450Y1038
+USB,U.S. Bancorp,Financials,Diversified Banks,US9029733048
+SBUX,Starbucks Corp.,Consumer Discretionary,Restaurants,US8552441094
+CAT,Caterpillar Inc.,Industrials,Construction Machinery & Heavy Trucks,US1491231015
+LLY,Lilly (Eli) & Co.,Health Care,Pharmaceuticals,US5324571083
+LMT,Lockheed Martin Corp.,Industrials,Aerospace & Defense,US5398301094
+UPS,United Parcel Service,Industrials,Air Freight & Logistics,US9113121068
+CELG,Celgene Corp.,Health Care,Biotechnology,US1510201049
+COST,Costco Wholesale Corp.,Consumer Staples,Hypermarkets & Super Centers,US22160K1051
+NEE,NextEra Energy,Utilities,Multi-Utilities,US65339F1012
+NKE,Nike,Consumer Discretionary,"Apparel, Accessories & Luxury Goods",US6541061031
+CVS,CVS Health,Consumer Staples,Drug Retail,US1266501006
+AXP,American Express Co,Financials,Consumer Finance,US0258161092
+MS,Morgan Stanley,Financials,Investment Banking & Brokerage,US6174464486
+TWX,Time Warner Inc.,Consumer Discretionary,Cable & Satellite,US8873173038
+CHTR,Charter Communications,Consumer Discretionary,Cable & Satellite,US16119P1084
+LOW,Lowe's Cos.,Consumer Discretionary,Home Improvement Retail,US5486611073
+BIIB,Biogen Inc.,Health Care,Biotechnology,US09062X1037
+CL,Colgate-Palmolive,Consumer Staples,Household Products,US1941621039
+MDLZ,Mondelez International,Consumer Staples,Packaged Foods & Meats,US6092071058
+DUK,Duke Energy,Utilities,Electric Utilities,US26441C2044
+COP,ConocoPhillips,Energy,Oil & Gas Exploration & Production,US20825C1045
+WBA,Walgreens Boots Alliance,Consumer Staples,Drug Retail,US9314271084
+BLK,BlackRock,Financials,Asset Management & Custody Banks,US09247X1019
+AGN,"Allergan, Plc",Health Care,Pharmaceuticals,IE00BY9D5467
+DHR,Danaher Corp.,Health Care,Health Care Equipment,US2358511028
+GM,General Motors,Consumer Discretionary,Automobile Manufacturers,US37045V1008
+GD,General Dynamics,Industrials,Aerospace & Defense,US3695501086
+AIG,"American International Group, Inc.",Financials,Property & Casualty Insurance,US0268747849
+MET,MetLife Inc.,Financials,Life & Health Insurance,US59156R1086
+FDX,FedEx Corporation,Industrials,Air Freight & Logistics,US31428X1063
+BK,The Bank of New York Mellon Corp.,Financials,Asset Management & Custody Banks,US0640581007
+RTN,Raytheon Co.,Industrials,Aerospace & Defense,US7551115071
+SO,Southern Co.,Utilities,Electric Utilities,US8425871071
+MON,Monsanto Co.,Materials,Fertilizers & Agricultural Chemicals,US61166W1018
+OXY,Occidental Petroleum,Energy,Oil & Gas Exploration & Production,US6745991058
+SPG,Simon Property Group Inc,Real Estate,Retail REITs,US8288061091
+KHC,Kraft Heinz Co,Consumer Staples,Packaged Foods & Meats,US5007541064
+F,Ford Motor,Consumer Discretionary,Automobile Manufacturers,US3453708600
+COF,Capital One Financial,Financials,Consumer Finance,US14040H1059
+EXC,Exelon Corp.,Utilities,Multi-Utilities,US30161N1019
+EMR,Emerson Electric Company,Industrials,Electrical Components & Equipment,US2910111044
+HAL,Halliburton Co.,Energy,Oil & Gas Equipment & Services,US4062161017
+ALL,Allstate Corp,Financials,Property & Casualty Insurance,US0200021014
+KMI,Kinder Morgan,Energy,Oil & Gas Storage & Transportation,US49456B1017
+TGT,Target Corp.,Consumer Discretionary,General Merchandise Stores,US87612E1064
+FOXA,Twenty-First Century Fox Class A,Consumer Discretionary,Publishing,US90130A1016
+FOX,Twenty-First Century Fox Class B,Consumer Discretionary,Publishing,US90130A2006
