@@ -125,7 +125,7 @@ def result(request):
         prices=pd.concat([prices, prices_t], axis=1)
         
     strat_ts=strategy_ts(prices, weights)
-    strat_cum=chart.chart_line(strat_ts, formatchart='.3%', size=[600,400])
+    strat_cum=chart.chart_line(strat_ts, formatchart='.3%', name='Strategy Performance', size=[600,400])
     #company returns for result table
     names=[]
     rors=[]

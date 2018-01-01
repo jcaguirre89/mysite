@@ -38,7 +38,11 @@ urlpatterns += [
     url(r'^accounts/login/$', login, name='login'),
     url(r'^signup/$', views.signup, name='signup'),
     url(r'^accounts/logout/$', logout, name='logout'), 
+    url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
+
 ]
+
+
 
 #Add Photologue
 urlpatterns += [

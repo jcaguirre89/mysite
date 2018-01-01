@@ -13,6 +13,44 @@
 {% block content %}
 
 
+
+<div class="game-container">
+
+<div class="game-sidebar">
+
+<p>
+This is a simple game, that I set up as an exercise to learn
+how to create apps with Django that leverage the simplicity of its
+web framework with Python's calculation and charting power. Most
+tutorials online teach how to set up simpler apps like blogs that
+have little business logic under the hood, so this game is my
+personal laboratory to experiment with these platforms and their
+integration.
+</p>
+</br>
+<p>
+The Rules are simple:
+</p>
+<ul>
+<li>5 companies from the S&amp;P 100 are picked at random</li>
+<li> a date from 2010 to 2017 is randomly picked</li>
+<li> you can see each company's last 6 month price chart, and
+their GICS sector + industry</li>
+<li> you must create a portfolio with these 5 companies, choosing
+the weights for each one with the slider bar. weights must add up to
+100% and there is no shorting</li>
+<li> After submitting, you will be shown the return this simulated
+portfolio would have had during the following 6 months, and the names
+of each company</li>
+<li>You can see your return history and growth of a simulated $1,000,000
+starting capital in the "Performance Dashboard" tab</li>
+</ul>
+
+</div>
+
+
+<div class="main-game">
+
 <div class="slider-list">
 
 <form action="" method="post">{% csrf_token %}
@@ -32,10 +70,12 @@
 </form>
 </div>
   
-<div class="main-game">
+
+
 <div>  
 {{ chart_div|safe }}
 </div>
+
 <div>
 <table>
   <tr>
@@ -51,10 +91,14 @@
   </tr>
   {% endfor %}
 </table>
-</div>
+
 </div>
 
-{% endblock %}
+</div>
+
+</div>
+
+{% endblock content %}
 
 {% block javascript %}
 <script src="{% static 'hindsight1/hindsight1.js' %}"></script>

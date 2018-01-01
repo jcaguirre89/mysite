@@ -1,4 +1,13 @@
 
+.game-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.game-sidebar {
+	width: 100%;
+	padding: 30px;
+}
 
 .main-game{
 	display: flex;

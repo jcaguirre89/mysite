@@ -1,15 +1,29 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block css %}
-{% load static %}
-<link rel="stylesheet" type"text/css" href="{% static 'hindsight1/style.css' %}" />
 {% endblock %}
 
 {% block content %}
+
+<div class="signup">
+
   <h2>Sign up</h2>
-  <form method="post">
+  <div id="username-check"></div>
+  <form method="post" data-validate-username-url="{% url 'validate_username' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Sign up</button>
   </form>
+  
+</div>
+  
 {% endblock %}
+
+{% block javascript %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{% static 'mysite/mysite.js' %}"></script>
+
+{% endblock javascript %}
+

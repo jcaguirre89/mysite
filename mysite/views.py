@@ -7,8 +7,18 @@ Created on Fri Dec  1 17:07:04 2017
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from django.http import JsonResponse
+from django.contrib.auth.models import User
 
 
+def validate_username(request):
+    username = request.GET.get('username',None)
+    data = {
+            'is_taken': User.objects.filter(username__iexact=username).exists()
+            }
+    if data['is_taken']:
+        data['error_message'] = 'Username taken'
+    return JsonResponse(data)
 
 def signup(request):
     if request.method == 'POST':
