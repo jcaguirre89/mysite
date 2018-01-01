@@ -5,7 +5,6 @@
 {% block extra_head %}
 
 <link href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.css" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.3.0/rangeslider.min.js"></script>
 
 {% endblock extra_head %}
@@ -13,13 +12,19 @@
 {% block content %}
 
 
+<div id="content">
+    <button type="button" id="sidebarCollapse" class="btn btn-primary navbar-btn">
+        <i class="glyphicon glyphicon-align-left"></i>
+        Information
+    </button>
+</div>
 
 <div class="game-container">
 
-<div class="game-sidebar">
+<nav id="sidebar">
 
 <p>
-This is a simple game, that I set up as an exercise to learn
+This is a simple game that I set up as an exercise to learn
 how to create apps with Django that leverage the simplicity of its
 web framework with Python's calculation and charting power. Most
 tutorials online teach how to set up simpler apps like blogs that
@@ -32,21 +37,22 @@ integration.
 The Rules are simple:
 </p>
 <ul>
-<li>5 companies from the S&amp;P 100 are picked at random</li>
-<li> a date from 2010 to 2017 is randomly picked</li>
-<li> you can see each company's last 6 month price chart, and
-their GICS sector + industry</li>
-<li> you must create a portfolio with these 5 companies, choosing
-the weights for each one with the slider bar. weights must add up to
-100% and there is no shorting</li>
+<li>5 companies from the S&amp;P 100 and a date from 2010 to 
+2017 are picked at random.</li>
+<li> You can see each company's last 6 month price chart, and
+their GICS sector + industry.</li>
+<li> You must create a portfolio with these 5 companies, choosing
+the weights for each one with the slider bar. Weights must add up to
+100% and there is no shorting.</li>
 <li> After submitting, you will be shown the return this simulated
 portfolio would have had during the following 6 months, and the names
-of each company</li>
+of each company.</li>
 <li>You can see your return history and growth of a simulated $1,000,000
-starting capital in the "Performance Dashboard" tab</li>
+starting capital in the "Performance Dashboard" tab.</li>
 </ul>
 
-</div>
+
+</nav>
 
 
 <div class="main-game">
