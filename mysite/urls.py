@@ -27,7 +27,8 @@ urlpatterns = [
     url(r'^game/', include('hindsight1.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home, name='home'),    
+    url(r'^$', views.home, name='home'),
+    url(r'^myhome/(?P<username>[\w\-]+)/', views.myhome, name='myhome'),        
     url(r'^about/$', views.about, name='about'), 
 ]
 

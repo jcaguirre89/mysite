@@ -15,8 +15,6 @@ app_name = 'hindsight1'
 
 urlpatterns = [url(r'^game/$', views.ranking, name='ranking'),
               url(r'^result/$', views.result, name='result'),
-              url(r'^earnings/$', views.earnings, name='earnings'),
-              url(r'^performance/$', views.performance, name='performance'),
               url(r'^play/$', views.play, name='play'),
               url(r'^ranking/$', views.ranking, name='ranking'),
               url(r'^dashboard/$', views.perf_dashboard, name='dashboard'),

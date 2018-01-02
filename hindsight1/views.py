@@ -52,7 +52,7 @@ def perf_dashboard(request):
     cum_chart=chart.chart_bar_cum(df_capital, df_cum, title='Cumulate Returns', categories=False, formatchart='$,.0f', size=[500,500])
   
     return render(request, 
-                  'hindsight1/myhome.html',
+                  'hindsight1/performance.html',
                   context={
                           'user': user,
                           'past_chart': past_chart,
@@ -61,45 +61,6 @@ def perf_dashboard(request):
                           #'title': 'Play by play performance',
                           }
                   )
-
-@login_required(login_url='/accounts/login/')
-def performance(request):
-    user = request.user
-    capital = user.profile.capital
-    #get last 5 play results
-    #plays=PlayRecord.recobjects.filter(user=user).order_by('play_time')[:20]
-    df_plays = PlayRecord.recobjects.get_past_rors(user)
-    bar_div=chart.chart_bar(df_plays['strategy_ror'], formatchart='.1%', categories=False, size=[600,400])    
-    return render(request, 
-                  'hindsight1/myhome.html',
-                  context={
-                          'user': user,
-                          'bar_div': bar_div,
-                          'capital': capital,
-                          'title': 'Play by play performance',
-                          }
-                  )
-
-
-@login_required(login_url='/accounts/login/')
-def earnings(request):
-    user = request.user
-    capital = user.profile.capital
-    #cumulate returns
-    df_cum = PlayRecord.recobjects.get_cum_rors(user)
-    df_capital = (df_cum+1)*1000000
-    bar_div=chart.chart_bar_cum(df_capital, df_cum, categories=False, formatchart='$,.0f', size=[600,400])
-    
-    return render(request, 
-                  'hindsight1/myhome.html',
-                  context={
-                          'user': user,
-                          'bar_div': bar_div,
-                          'capital': capital,
-                          'title': 'Growth of initial $1,000,000',
-                          }
-                  )
-
 
 @login_required(login_url='/accounts/login/')
 def result(request):
@@ -174,7 +135,6 @@ def play(request):
     else:
         #get user and current capital
         user = request.user
-        capital_pre = user.profile.capital
         #Instantiate a new play
         date, tickers = Prices.playprices.start_play(number=5)
         start = Prices.start_date(date)
@@ -185,35 +145,22 @@ def play(request):
         #to know how to identify the play
         play_id=play.id
         form=GameInputForm()
-        #chart each company's 6M trailing price, and get info
-        company_sector=[]
-        company_industry=[]
         prices=pd.DataFrame()
         data = {}
         for company in tickers:
             data[company]={}
             prices_t=Prices.playprices.price_ts(company, start, date)
             prices=pd.concat([prices, prices_t], axis=1)
-            sector=Sp100.playcompanies.get_sector(company)
-            industry=Sp100.playcompanies.get_industry(company)
-            #company_sector.append(sector)
-            #company_industry.append(industry)
-            data[company]['sector']=sector
-            data[company]['industry']=industry
-            #data[company] = get_data(company)
+            data[company]['sector']=Sp100.playcompanies.get_sector(company)
+            data[company]['industry']=Sp100.playcompanies.get_industry(company)
         prices.columns = ['Company 1', 'Company 2', 'Company 3', 'Company 4', 'Company 5']
         chart_div=chart.chart_line_dropdown(prices, formatchart='$.2f', name='Price', size=[600,400])
 
             
         return render(request, 'hindsight1/playV5.html', context={'form': form,
-                                                                'tickers': tickers,
-                                                                'date': date,
                                                                 'play_id':play_id,
-                                                                'company_sector': company_sector,
-                                                                'company_industry': company_industry,
                                                                 'chart_div': chart_div,
                                                                 'user': user,
-                                                                'capital': capital_pre,
                                                                 'data': data,
                                                                 }
                     )        

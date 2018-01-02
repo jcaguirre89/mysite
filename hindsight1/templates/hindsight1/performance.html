@@ -1,0 +1,19 @@
+{% extends "hindsight1/base_hindsight1.html" %}
+
+
+{% block content %}
+
+<h2 style="text-align:center">Performance Dashboard</h2>
+
+<div class="dashboard">
+<div>
+  {{ past_chart|safe }}
+  
+</div>
+<div>
+  {{ cum_chart|safe }}
+</div>
+ 
+</div>
+
+{% endblock content %}

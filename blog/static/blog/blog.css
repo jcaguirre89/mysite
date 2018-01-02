@@ -65,7 +65,11 @@ img {
 #tags li a {
 	float: left;
 	display: block;
-	padding: 10px;
+	padding: 5px;
+	margin: 10px;
+	border: 1px solid #cecece;
+	border-radius: 5px;
+	background: #cecece;
 }
 
 #sidebar {
