@@ -38,6 +38,8 @@
     <li><a href="{% url 'home' %}"><b>HOME</b></a></li>
     <li><a href="{% url 'hindsight1:play' %}">GAME</a></li>	  
     <li><a href="{% url 'blog:index' %}">BLOG</a></li>	
+    <li><a href="{% url 'about' %}">ABOUT</a></li>	
+
 	
 	{% if user.is_authenticated %}
 	<li style="float:right"><a  href="{% url 'myhome'  username=user.username %}">{{ user.username }}: profile</a></li>

@@ -13,19 +13,6 @@ from django.contrib.auth.decorators import login_required
 
 
 
-
-
-# Create your views here.
-#def index(request):
-#    return render(request, 'hindsight1/index_h1.html')
-
-
-"""
-class IndexView(generic.DetailView):
-    template_name = 'hindsight1/index.html'
-"""
-   
-
 def ranking(request):
     rank=Profile.objects.all().order_by('-capital')[:10]
     return render(request,
@@ -34,20 +21,15 @@ def ranking(request):
                     }
            )
     
-#def show_data(request):
-#    ticker = request.GET.get('company', None)
- #   data = get_data(ticker)
-
-
 @login_required(login_url='/accounts/login/')
 def perf_dashboard(request):
     user = request.user
     capital = user.profile.capital
     #previous plays result
-    df_plays = PlayRecord.recobjects.get_past_rors(user)
+    df_plays = PlayRecord.objects.get_past_rors(user)
     past_chart=chart.chart_bar(df_plays['strategy_ror'], title='Performance History', formatchart='.1%', categories=False, size=[500,500])    
     #cumulate returns
-    df_cum = PlayRecord.recobjects.get_cum_rors(user)
+    df_cum = PlayRecord.objects.get_cum_rors(user)
     df_capital = (df_cum+1)*1000000
     cum_chart=chart.chart_bar_cum(df_capital, df_cum, title='Cumulate Returns', categories=False, formatchart='$,.0f', size=[500,500])
   
@@ -68,11 +50,11 @@ def result(request):
     weights = request.session['weights'] 
     user = request.user
     capital_pre = user.profile.capital
-    port_ror = PlayRecord.recobjects.strategy_ror(play_id, weights)
+    port_ror = PlayRecord.objects.strategy_ror(play_id, weights)
     capital_post = capital_pre*(1+port_ror)
     user.profile.capital = capital_post
     user.save()
-    play = PlayRecord.recobjects.get(pk=play_id)
+    play = PlayRecord.objects.get(pk=play_id)
     tickers = play.companies
     play.strategy_ror = port_ror
     play.played = True

@@ -19,33 +19,6 @@ from django import forms
 from django.utils import timezone
 
 
-
-# Create your models here.
-
-"""
-class Input(models.Model):
-    r = models.FloatField()
-    
-the meta sub class in django is used for everything that isn't a field in
-the model.
-
-class InputForm(ModelForm):
-    class Meta:
-        model = Input
-
-
-#Not within any particular model
-def strategy_ror(weights, date, tickers): 
-    rors=[]
-    start = date
-    end = Prices.end_date(date)
-    for ticker in tickers:
-        ror = Prices.playprices.ticker_ror(ticker, start, end)
-        rors.append(ror)
-    strategy_ror = sum([a*b for a,b in zip(weights, rors)])
-    return strategy_ror
-"""
-
 class Sp100QuerySet(models.QuerySet):
     
     def random_company(self):
@@ -239,16 +212,9 @@ class PlayRecord(models.Model):
     company_5 = models.FloatField(default=0.0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     played = models.BooleanField(default=False)
-    recobjects = PlayRecordQuerySet.as_manager()
+    objects = PlayRecordQuerySet.as_manager()
 
-    
-    
-class GameInput(models.Model):
-    weight = models.FloatField(default=0.0)
-    ticker = models.ForeignKey(Sp100, on_delete=models.CASCADE)
-    
-    def __str__(self):
-        return self.ticker
+
 
 class GameInputForm(forms.Form):
     company_1 = forms.IntegerField(widget=forms.NumberInput(attrs={'type':'range', 'min':0, 'max':100, 'step': '5', 'value':0.0}))
@@ -258,15 +224,6 @@ class GameInputForm(forms.Form):
     company_5 = forms.IntegerField(widget=forms.NumberInput(attrs={'type':'range', 'min':0, 'max':100, 'step': '5', 'value':0.0}))
 
 
-
-
-
-"""
-class GameInputForm(ModelForm):
-    class Meta:
-        model = PlayRecord
-        fields = ['company_1', 'company_2', 'company_3', 'company_4', 'company_5']  
-"""
 
 #Extend Django User model to include running capital amount
 class Profile(models.Model):
