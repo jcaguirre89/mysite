@@ -6,44 +6,75 @@
 
 {% block content %}
 
-<div class="about">
-<p>
-My name is Cristobal Aguirre. I studied Economics
-in Chile, and moved to Vancouver with my wife in mid 2017 after 5 months travelling around South East Asia.
-I set up this website as a personal project to learn web app development with the Django
-Web Framework.
+<div class="hidden-text" style="display:none;">
+
+<p id="about">
+My name is Cristobal Aguirre. I studied Economics in Chile, and moved to Vancouver with my
+wife in mid 2017 after 5 months travelling around South East Asia. I set up this website
+as a personal project to learn web app development with the Django Web Framework.
 </p>
 
-<p>
-While most of my working experience is
-in finance, I am very interested in Data Science and programming in Python. The simplicity of the syntax, its massive online support and resources
-like StackOverflow and the thousands of libraries freely available online have allowed the
-massification of its use. This is allowing a new breed of analyst to emerge, with a career outside computer science (marketing, law, etc.) but 
-with enough understanding of programming to implement technical solutions previously outsourced, discarded as too complicated and, most importantly,
-never considered in the first place because no one in the business unit ever thought it possible. How would you consider setting up a web scraper to 
-automatically download online data instead of doing it manually if you don't know what that is?
+<p id="django">
+While most of my working experience is in finance, I am very interested in Data Science
+and programming in Python. The simplicity of the syntax, its massive online support and
+resources like StackOverflow and the thousands of libraries freely available online have
+allowed the massification of its use. This is allowing a new breed of analyst to emerge,
+with a career outside computer science (marketing, law, etc.) but with enough understanding
+of programming to implement technical solutions previously outsourced, discarded as too
+complicated and, most importantly, never considered in the first place because no one in
+the business unit ever thought it possible. How would you consider setting up a web scraper
+to automatically download online data instead of doing it manually if you don't know what
+that is?
 </p>
 
-<p>
-Beyond the obvious efficiency gains, the real benefit of having technically capable analysts weaved through an organization is a much faster and
-effective reaction to increased business complexity. A worryingly large percentage of business data is currently compiled and analyzed using
-Excel spreadsheets, whose low barrier to entry meant access to wide audiences, but at several costs. Leaving aside financial models
-that religiously adhere to standars like FAST, most can be described as easy to break, hard to fix and impossible to transfer. Python code can be
-more carefully standarized and documented (many managers are skeptic about new technology because it introduces key man risk, so good documentation is
-an important point), is more versatile (many spreadsheets cross the breaking point when asked to do tasks beyond their nature) and more capable (a few
-simple lines of code using any of the thousand libraries can replace those despicable Excel formulas that are two lines long and impossible to audit).
-The main benefit of using spreadsheets -- their mass usage, is also it's main fault; the ease of use invites carelesness, which is very costly down
-the line.
+<p id="science">
+I strongly believe being closer to the business requirements and having a significant
+participation in the solution development, as opposed to outsourcing it (either
+externally or internally), will yield a more scalable and effective product. That is
+why I'm always searching for ways to expand my programming knowledge, and encourage
+everyone else to do so as well. Not because I think programming is more fun/more valuable
+than accounting or marketing, but because I expect this distinction to disappear in the
+near future.
 </p>
 
-<p>
-I strongly believe being closer to the business requirements <strong>and</strong> having a significant participation in the solution development,
-as opposed to outsourcing it (either externally or internally), will yield a more scalable and effective product. That is why I'm always searching for
-ways to expand my programming knowledge, and encourage everyone else to do so as well. Not because I think programming is more fun/more valuable
-than accounting or marketing, but because I expect this distinction to disappear in the near future.
+
+</div>
+
+<div class="container-about">
+
+<div class="about-main-text">
+<p id="main-text">
+My name is Cristobal Aguirre. I studied Economics in Chile, and moved to Vancouver with my
+wife in mid 2017 after 5 months travelling around South East Asia. I set up this website
+as a personal project to learn web app development with the Django Web Framework.
 </p>
+</div>
+
+<div class="container-about-selectors">
+
+<div id="click-about" class="selected about-selectors">
+About us
+</div>
+
+<div id="click-science" class="about-selectors">
+Data Science
+</div>
+
+<div id="click-django" class="about-selectors">
+Why Django
+</div>
+
+
+
+</div>
+
 </div>
 {% endblock content %}
 
 {% block footer %}
 {% endblock footer %}
+
+{% block javascript %}
+<script src="{% static 'mysite/mysite.js' %}"></script>
+
+{% endblock javascript %}

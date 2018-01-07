@@ -15,3 +15,31 @@ $("#id_username").change(function() {
 	});  
   
 });
+
+//alternate text
+//about
+$(document).ready(function () {
+  $("#click-about").click(function() {
+	  $("#main-text").text($("#about").text());
+	  $(".selected").removeClass("selected");
+	  $(this).addClass("selected");
+  });
+});
+
+//data
+$(document).ready(function () {
+  $("#click-science").click(function() {
+	  $("#main-text").text($("#science").text());
+	  $(".selected").removeClass("selected");
+	  $(this).addClass("selected");
+  });
+});
+
+//django
+$(document).ready(function () {
+  $("#click-django").click(function() {
+	  $("#main-text").text($("#django").text());
+	  $(".selected").removeClass("selected");
+	  $(this).addClass("selected");
+  });
+});

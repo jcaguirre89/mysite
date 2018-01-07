@@ -60,9 +60,55 @@ footer {
 	width: 100%;
 }
 
+.container-about {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+
+.about-main-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	background-color: #ff7f59;
+	border-radius: 5px;
+	padding: 25px;
+	margin: auto;
+	width: 50%;
+	min-height: 75vh;
+}
+
+.container-about-selectors {
+	display: flex;
+	flex-direction:column;
+	justify-content: space-between;
+	width: 40%;
+	min-height: 75vh;
+}
+
+.about-selectors {
+    display: flex;
+    justify-content: center;
+    align-items: center;	
+	background-color: #59ff6c;
+	border-radius: 5px;
+	padding: 25px;
+	margin-right: 100px;
+	height: 30%;
+}
+
+.about-selectors:hover {
+	background-color: #ffe359;
+}
+
+.selected {
+	background-color: #ffe359;
+}
+
+
 .topmenu {
 	background-color: white;
-	border-bottom: 1px solid #bab8b8;
+	border-bottom: 1px solid #e8e8e8;
 }
 	
 .topmenu ul {
