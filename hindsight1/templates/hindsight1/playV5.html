@@ -9,6 +9,10 @@
 
 {% endblock extra_head %}
 
+
+
+
+
 {% block content %}
 
 
@@ -22,6 +26,12 @@
 <div class="game-container">
 
 <nav id="sidebar">
+
+{% if user.is_anonymous %}
+<p> If you create a user, you can track your performance history in the performance
+dashboard.
+</p>
+{% endif %}
 
 <p>
 This is a simple game that I set up as an exercise to learn

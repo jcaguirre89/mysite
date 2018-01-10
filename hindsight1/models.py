@@ -173,10 +173,10 @@ class Prices(models.Model):
 
 class PlayRecordQuerySet(models.QuerySet):
     
-    def strategy_ror(self, play_id, weights):
-        tickers = self.get(pk=play_id).companies
-        date = self.get(pk=play_id).play_rand_date
-        date = date.date()
+    def strategy_ror(self, weights, tickers=None, date=None, play_id=None):
+        if play_id != None:
+            tickers = self.get(pk=play_id).companies
+            date = self.get(pk=play_id).play_rand_date
         rors=[]
         start = date
         end = Prices.end_date(date)
@@ -203,7 +203,7 @@ class PlayRecordQuerySet(models.QuerySet):
 class PlayRecord(models.Model):
     play_time=models.DateTimeField(default=timezone.now)
     strategy_ror = models.FloatField(default=0.0)
-    play_rand_date = models.DateTimeField(default=timezone.now)
+    play_rand_date = models.DateTimeField(default=datetime.datetime.now)
     companies = ArrayField(models.CharField(max_length=10), default=list)
     company_1 = models.FloatField(default=0.0)
     company_2 = models.FloatField(default=0.0)

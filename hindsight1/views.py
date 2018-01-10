@@ -9,6 +9,7 @@ import hindsight1.charts.charts as chart
 import pandas as pd
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
+import datetime
 #from hindsight1.stock_data import get_data
 
 
@@ -44,55 +45,52 @@ def perf_dashboard(request):
                           }
                   )
 
-@login_required(login_url='/accounts/login/')
 def result(request):
-    play_id = request.session['play_id']
     weights = request.session['weights'] 
+    companies = request.session['companies']
+    year = request.session['year']
+    month = request.session['month']
+    day = request.session['day']
+    date = datetime.date(year, month, day)
     user = request.user
-    capital_pre = user.profile.capital
-    port_ror = PlayRecord.objects.strategy_ror(play_id, weights)
-    capital_post = capital_pre*(1+port_ror)
-    user.profile.capital = capital_post
-    user.save()
-    play = PlayRecord.objects.get(pk=play_id)
-    tickers = play.companies
-    play.strategy_ror = port_ror
-    play.played = True
-    play.save()
-    #create cumulate return chart for strategy
-    date = play.play_rand_date
+    port_ror = PlayRecord.objects.strategy_ror(weights, tickers=companies, date=date)
+    if user.is_authenticated():
+        play_id = request.session['play_id']
+        user.profile.capital = user.profile.capital*(1+port_ror)
+        user.save()
+        play = PlayRecord.objects.get(pk=play_id)
+        play.strategy_ror = port_ror
+        play.played = True
+        play.save()
     end = Prices.end_date(date)
     prices=pd.DataFrame()
-    for company in tickers:
-        prices_t=Prices.playprices.price_ts(company, date.date(), end)
-        prices=pd.concat([prices, prices_t], axis=1)
-        
+    for company in companies:
+        prices_t=Prices.playprices.price_ts(company, date, end)
+        prices=pd.concat([prices, prices_t], axis=1)  
     strat_ts=strategy_ts(prices, weights)
     strat_cum=chart.chart_line(strat_ts, formatchart='.3%', name='Strategy Performance', size=[600,400])
     #company returns for result table
     names=[]
     rors=[]
-    for ticker in tickers:
+    for ticker in companies:
         name=Sp100.objects.get(pk=ticker).security
         names.append(name)
-        ror=Prices.playprices.ticker_ror(ticker, date.date(), end)
+        ror=Prices.playprices.ticker_ror(ticker, date, end)
         ror='{:.2%}'.format(ror)
         rors.append(ror)
     return render(request,
                   'hindsight1/result.html',
                   context={'port_ror':port_ror,
                            'weights': weights,
-                           'tickers': tickers,
+                           'tickers': companies,
                            'date': date,
                            'strat_cum': strat_cum,
                            'names': names,
                            'rors': rors,
                            'user': user,
-                           'capital': capital_post,
                            }
                   )
     
-@login_required(login_url='/accounts/login/')
 def play(request):
     #GameInputFormSet = formset_factory(GameInputForm, extra=5)
     if request.method == 'POST':
@@ -107,10 +105,11 @@ def play(request):
             w4=form.cleaned_data.get('company_4')/100
             w5=form.cleaned_data.get('company_5')/100
             weights=[w1,w2,w3,w4,w5]
-            play_id = request.POST.get("play_id","")
+            #play_id = request.POST.get("play_id","")
             #save data into session and send to result view
-            request.session['play_id'] = request.POST.get("play_id","")
+            #request.session['play_id'] = request.POST.get("play_id","")
             request.session['weights'] = weights
+            
             return HttpResponseRedirect(reverse('hindsight1:result'))
         else:
             HttpResponseRedirect(reverse('hindsight1:play'))
@@ -120,12 +119,18 @@ def play(request):
         #Instantiate a new play
         date, tickers = Prices.playprices.start_play(number=5)
         start = Prices.start_date(date)
-        play = PlayRecord(play_rand_date=date, companies=tickers)
-        play.user = user
-        play.save()
-        #Get play id, which will be passed back in the form when it's bound
-        #to know how to identify the play
-        play_id=play.id
+        if user.is_authenticated():
+            play = PlayRecord(play_rand_date=date, companies=tickers)
+            play.user = user
+            play.save()
+            request.session['play_id'] = play.id
+        #Store play info into session to pass into next view.
+        request.session['companies'] = tickers
+        #must save date info in session as integers, as datetimes cannot be
+        #serialized by json
+        request.session['year'] = date.year
+        request.session['month'] = date.month
+        request.session['day'] = date.day
         form=GameInputForm()
         prices=pd.DataFrame()
         data = {}
@@ -140,13 +145,12 @@ def play(request):
 
             
         return render(request, 'hindsight1/playV5.html', context={'form': form,
-                                                                'play_id':play_id,
+                                                                #'play_id':play_id,
                                                                 'chart_div': chart_div,
                                                                 'user': user,
                                                                 'data': data,
                                                                 }
                     )        
-        
 
 
 def strategy_ts(prices, weights):
