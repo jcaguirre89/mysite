@@ -24,7 +24,9 @@ def validate_username(request):
             'is_taken': User.objects.filter(username__iexact=username).exists()
             }
     if data['is_taken']:
-        data['error_message'] = 'Username taken'
+        data['message'] = 'Username taken'
+    else:
+        data['message'] = 'Username available'
     return JsonResponse(data)
 
 def signup(request):

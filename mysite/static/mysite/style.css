@@ -142,3 +142,45 @@ footer {
     background-color: #bafff2;
 }
 
+.login-container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+    justify-content: center;
+    align-items: center;	
+	background-color: #bafff2;
+	border-radius: 5px;
+	padding: 25px;
+}
+
+.login-box {
+	display: flex;
+	flex-direction: column;
+	background: white;
+    padding: 50px;
+	border: 1px solid #cecece;
+}
+
+.login-button {
+	width: 100%;
+	background: #a0e5ff;
+	border-radius: 5px;
+	color: white;
+	padding: 10px;
+}
+
+.login-inputs {
+	padding-bottom: 10px;
+}
+
+.user-ok {
+	color: green;
+}
+
+.user-notok {
+	color: red;
+}
+
+.login-box input {
+	width: 100%;
+}

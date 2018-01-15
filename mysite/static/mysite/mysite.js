@@ -7,9 +7,12 @@ $("#id_username").change(function() {
 	  dataType: 'json',
 	  success: function (data) {
 		if (data.is_taken) {
-		  $("#username-check").text(data.error_message)
+		  $("#username-check").text(data.message);
+		  $("#username-check").removeClass("user-ok").addClass("user-notok");
 		} else {
-		  $("#username-check").text("Username available")		    
+		  $("#username-check").text(data.message);
+		  $("#username-check").removeClass("user-notok").addClass("user-ok");
+		  
 		}
 	  }
 	});  
