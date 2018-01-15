@@ -161,14 +161,6 @@ footer {
 	border: 1px solid #cecece;
 }
 
-.login-button {
-	width: 100%;
-	background: #a0e5ff;
-	border-radius: 5px;
-	color: white;
-	padding: 10px;
-}
-
 .login-inputs {
 	padding-bottom: 10px;
 }

@@ -7,7 +7,7 @@
 {% block post %}
 
 
-<div class="posts-index">
+<div class="index-container">
 
 {% for post in posts %}
 
@@ -16,7 +16,7 @@
     <img src="{{ post.image.url }}" />
   </div>
   <div class="post-details">
-    <h3><a href="{% url 'blog:detail' post.id %}" id="post-title">{{ post.post_title }}</a></h3>
+    <h3><a href="{% url 'blog:detail' post.id %}" id="index-post-title">{{ post.post_title }}</a></h3>
     <p id="summary">{{post.summary }}</p>
     <p id="extra-info">Topic: {{post.topic }} - Published: {{post.pub_date }}</p>  
 	{% if post.tags %}
