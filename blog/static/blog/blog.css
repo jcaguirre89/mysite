@@ -3,7 +3,7 @@ img {
 }
 	
 body {
-	background: #bafff2;
+	background: white;
 }
 
 	
@@ -13,11 +13,14 @@ body {
 
 }
 
+
+
 .index-container {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	background: white;
 	align-items: center;
+	width: 80vw;
 }
 
 .post-container {
@@ -29,24 +32,33 @@ body {
 	border-bottom: 1px solid #bab8b8;
 }
 
+.post-and-image {
+	display: flex;
+	flex-wrap: wrap;
+}
+
 
 .thumbnail {
-	width: 40%;
-	min-width: 200px;
+	max-width: 250px;
 	margin-right: 10px;
+	border: 0;
 }
 
 .thumbnail img {
 	max-height:600px;
 	width: 100%;
+	display: block;
 }
 
 #index-post-title {
-  font:normal 30px/150% Fira Sans, Helvetica, sans-serif;
+  text-align: left;
+  font:normal 30px/150% Catamaran, sans-serif;
   color: #565656;
 }	
 
 #tags {
+	display: flex;
+	flex-wrap: wrap;
 	list-style-type: none;
     margin: 0;
     padding: 0;
@@ -58,24 +70,40 @@ body {
 	display: block;
 	padding: 5px;
 	margin: 10px;
-	border: 1px solid #cecece;
-	border-radius: 5px;
-	background: #cecece;
+	border: none;
+	background: white;
+	font:normal 14px/150% Karla, cursive;
+	font-size: 11px;
 }
 
+#tags li a:hover {
+	border-top: 1px solid black;
+}
+
+.extras-container {
+	display: flex;
+	flex-direction: column;
+	min-width: 80px;
+}
+
+.extras-container p {
+	display: block;
+}
+
+#extra-topic {
+    color: red
+}
+
+#summary {
+	max-width: 350px;
+}
 
 .post-content {
-	width: 75%;
+	width: 65%;
 	text-align: justify;
     font:normal 16px/150% Lato Sans, Helvetica, sans-serif;
 	margin: 0 auto;
 }
-	
-.post-details {
-	display: flex;
-	flex-direction: column;
-}
-
 
 .post-details #tags {
 	margin-top: auto;
