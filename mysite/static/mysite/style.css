@@ -70,14 +70,14 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-	background-color: #bafff2;
+	background-color: #75ffe5;
 	border-radius: 5px;
 	padding: 25px;
 	margin: auto;
 	width: 50%;
 	min-height: 75vh;
     font: 20px/150% Lato Sans, sans-serif, Helvetica, sans-serif;
-	color: #3a3a3a;
+	color: #686868;
 	}
 
 	
@@ -94,22 +94,26 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;	
-	background-color: #bafff2;
+	background-color: #32baa0;
+	color: #efefef;
 	border-radius: 5px;
 	padding: 25px;
 	margin-right: 100px;
 	height: 30%;
     font: 25px/150% Lato Sans, sans-serif, Helvetica, sans-serif;
-	color: #686868;
 	}
 
 .about-selectors:hover {
 	background-color: #75ffe5;
+	color: #686868;
+    transition: all 0.5s;
 }
 
 .selected {
 	background-color: #75ffe5;
+	color: #686868;
 }
+
 
 
 .topmenu {

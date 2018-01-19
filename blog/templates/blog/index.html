@@ -12,7 +12,6 @@
 {% for post in posts %}
 
 
-  <h3><a href="{% url 'blog:detail' post.id %}" id="index-post-title">{{ post.post_title }}</a></h3>
 <div class="post-container"> 
   <div class="extras-container">
     <p id="extra-topic">{{post.topic }}</p>
@@ -24,8 +23,9 @@
 	  <div class="thumbnail">
 		<img src="{{ post.image.url }}" />
 	  </div>
-	  
-	  <div id="summary">
+
+	  <div id="summary">	  
+	    <h3><a href="{% url 'blog:detail' post.id %}" id="index-post-title">{{ post.post_title }}</a></h3>
 	    <p>{{post.summary }}</p>
 		{% if post.tags %}
 		<ul id="tags">
