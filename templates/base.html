@@ -21,6 +21,8 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css"></script>
 <link rel="stylesheet" type"text/css" href="{% static 'mysite/style.css' %}" />
+    
+<script src="https://use.fontawesome.com/f5f6e30fff.js"></script>
 
 {% block css %}{% endblock %}
 
@@ -32,27 +34,22 @@
 {% block topmenu %}
 
 <div class="topmenu">
-<div class="row">
-  <div class="col-sm-12">
-  <ul>
+  <ul class="topmenu-left">
     <li><a href="{% url 'home' %}"><b>HOME</b></a></li>
     <li><a href="{% url 'hindsight1:play' %}">GAME</a></li>	  
     <li><a href="{% url 'blog:index' %}">BLOG</a></li>	
     <li><a href="{% url 'about' %}">ABOUT</a></li>	
-
-	
+    </ul>
+    <ul class="topmenu-right">	
 	{% if user.is_authenticated %}
-	<li style="float:right"><a  href="{% url 'myhome'  username=user.username %}">{{ user.username }}: profile</a></li>
-    <li style="float:right"><a  href="{% url 'logout' %}">logout</a></li>	    
+	<li><a  href="{% url 'myhome'  username=user.username %}">{{ user.username }}: profile</a></li>
+    <li><a  href="{% url 'logout' %}">logout</a></li>	    
 	{% else %}
-    <li style="float:right"><a  href="{% url 'login' %}"><i class="glyphicon glyphicon-user"></i>login</a></li>
-    <li style="float:right"><a  href="{% url 'signup' %}">sign up</a></li>	
+    <li><a  href="{% url 'login' %}" id="topmenu-login">login</a></li>
+    <li><a  href="{% url 'signup' %}">sign up</a></li>
 	{% endif %}
-	
-  </ul>
+    </ul>	
   </div>
-</div>
-</div>
 
 {% endblock topmenu %}
 

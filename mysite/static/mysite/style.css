@@ -2,10 +2,8 @@
 body {
 	font: normal 15px/150% Lato, Helvetica, sans-serif;
     position: relative;
-    margin: 0;
-    min-height: 100%;
-
-	
+    margin: 0;	
+    overflow: hidden;
 }
 
 
@@ -64,20 +62,23 @@ footer {
 	display: flex;
 	justify-content: space-between;
 	margin-top: 20px;
+    width: 100vw;
+    height: 70vh;
+    position: relative;
 }
 
 .about-main-text {
     display: flex;
     justify-content: center;
     align-items: center;
-	background-color: #75ffe5;
-	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.33);
+	border-radius: 0px;
 	padding: 25px;
 	margin: auto;
 	width: 50%;
 	min-height: 75vh;
-    font: 20px/150% Lato Sans, sans-serif, Helvetica, sans-serif;
-	color: #686868;
+    font: 1.5em Lato Sans, sans-serif, Helvetica, sans-serif;
+	color: #333333;
 	}
 
 	
@@ -94,31 +95,45 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;	
-	background-color: #32baa0;
+	background-color: rgba(50, 186, 160, 0.33);
 	color: #efefef;
-	border-radius: 5px;
+	border-radius: 0px;
 	padding: 25px;
 	margin-right: 100px;
 	height: 30%;
-    font: 25px/150% Lato Sans, sans-serif, Helvetica, sans-serif;
-	}
+    font: 2.5em Lato Sans, sans-serif, Helvetica, sans-serif;
+}
 
 .about-selectors:hover {
-	background-color: #75ffe5;
+	background-color: rgba(117, 255, 229, 0.71);
 	color: #686868;
     transition: all 0.5s;
+    cursor: pointer;
 }
 
 .selected {
-	background-color: #75ffe5;
+	background-color: rgba(117, 255, 229, 0.71);
 	color: #686868;
 }
 
 
 
 .topmenu {
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.33);
 	border-bottom: 1px solid #e8e8e8;
+    max-height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.topmenu-left {
+    display: flex;
+    height: 100%;
+}
+
+.topmenu-right {
+    display: flex;
+    height: 100%;
 }
 	
 .topmenu ul {
@@ -128,15 +143,20 @@ footer {
     overflow: hidden;
 }
 
-.topmenu li {
-    float: left;
-}
 
+#topmenu-login::before {
+    content: "\f007";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    padding: 10px;
+}
 
 .topmenu li a {
     display: block;
     color: gray;
-    font: small-caps normal 25px/150% Fira Sans, sans-serif, Helvetica, sans-serif;
+    font: 25px/150% Fira Sans, sans-serif, Helvetica, sans-serif;
     text-align: center;
     padding: 20px 25px;
     text-decoration: none;
@@ -179,4 +199,18 @@ footer {
 
 .login-box input {
 	width: 100%;
+}
+.back-image-about {
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+    z-index:-1;
+    width: 1300px;
+}
+
+.about-img-container {
+    
 }

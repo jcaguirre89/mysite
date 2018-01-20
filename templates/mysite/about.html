@@ -8,39 +8,43 @@
 
 <div class="hidden-text" style="display:none;">
 
-<p id="about">
-My name is Cristobal Aguirre. I studied Economics in Chile, and moved to Vancouver with my
-wife in mid 2017 after 5 months travelling around South East Asia. I set up this website
-as a personal project to learn web app development with the Django Web Framework.
-</p>
+    <div id="about">
+    My name is Cristobal Aguirre. I studied Economics in Chile, and moved to Vancouver with my
+    wife in mid 2017 after 5 months travelling around South East Asia. I set up this website
+    as a personal project to practice web app development with the Django Web Framework.
+    </div>
 
-<p id="django">
-While most of my working experience is in finance, I am very interested in Data Science
-and programming in Python. The simplicity of the syntax, its massive online support and
-resources like StackOverflow and the thousands of libraries freely available online have
-allowed the massification of its use. This is allowing a new breed of analyst to emerge,
-with a career outside computer science (marketing, law, etc.) but with enough understanding
-of programming to implement technical solutions previously outsourced, discarded as too
-complicated and, most importantly, never considered in the first place because no one in
-the business unit ever thought it possible. How would you consider setting up a web scraper
-to automatically download online data instead of doing it manually if you don't know what
-that is?
-</p>
+    <div id="django">
+    <h5>Why Python</h5>
+    <p>
+    While most of my working experience is in finance, I am very interested in Data Science
+    and programming in Python. The simplicity of the syntax, its massive online support and
+    resources like StackOverflow and the thousands of libraries freely available online have
+    allowed the massification of its use.
+    </p>
+    <h5>This Blog</h5>
+    <p>
+    As a self-taught programmer, I owe a great debt to the open source community, and the people who took the time to write the tutorials and answers I used to learn. I will use this site as a platform to give back to the community as best I can, helping others who run into the same roadblocks I have in the past. And because the best way to get an answer on the internet is not by posting a question but an incorrect answer, I also hope more experienced programmers will chip in and share their experience to everyone's benefit.
+    </p>
+    </div>
 
-<p id="science">
-I strongly believe being closer to the business requirements and having a significant
-participation in the solution development, as opposed to outsourcing it (either
-externally or internally), will yield a more scalable and effective product. That is
-why I'm always searching for ways to expand my programming knowledge, and encourage
-everyone else to do so as well. Not because I think programming is more fun/more valuable
-than accounting or marketing, but because I expect this distinction to disappear in the
-near future.
-</p>
-
-
+    <div id="science">
+    I strongly believe being closer to the business requirements and having a significant
+    participation in the solution development, as opposed to outsourcing it (either
+    externally or internally), will yield a more scalable and effective product. That is
+    why I'm always searching for ways to expand my programming knowledge, and encourage
+    everyone else to do so as well. Not because I think programming is more fun/more valuable
+    than accounting or marketing, but because I expect this distinction to disappear in the
+    near future.
+    </div>
 </div>
 
+
 <div class="container-about">
+
+<img class="back-image-about" src="{% static "mysite/whistler1.jpg" %}" alt="Whistler Geese"/>
+
+
 
 <div class="about-main-text">
 <p id="main-text">
@@ -53,7 +57,7 @@ as a personal project to learn web app development with the Django Web Framework
 <div class="container-about-selectors">
 
 <div id="click-about" class="selected about-selectors">
-About us
+About
 </div>
 
 <div id="click-science" class="about-selectors">
@@ -61,7 +65,7 @@ Data Science
 </div>
 
 <div id="click-django" class="about-selectors">
-Why Django
+Python and Django
 </div>
 
 
