@@ -11,32 +11,63 @@
 {% endblock %}
 
 
+{% block topmenu %}
+
+<div class="topmenu">
+<div class="row">
+  <div class="col-sm-12">
+  <ul>
+    <li><a href="{% url 'home' %}"><b>HOME</b></a></li>
+    <li><a href="{% url 'hindsight1:play' %}">GAME</a></li>	  
+    <li><a href="{% url 'blog:index' %}">BLOG</a></li>	
+    <li><a href="{% url 'about' %}">ABOUT</a></li>	
+
+	
+	{% if user.is_authenticated %}
+	<li style="float:right"><a  href="{% url 'myhome'  username=user.username %}">{{ user.username }}: profile</a></li>
+    <li style="float:right"><a  href="{% url 'logout' %}">logout</a></li>	    
+	{% else %}
+    <li style="float:right"><a  href="{% url 'login' %}"><i class="glyphicon glyphicon-user"></i>login</a></li>
+    <li style="float:right"><a  href="{% url 'signup' %}">sign up</a></li>	
+	{% endif %}
+	
+  </ul>
+  </div>
+</div>
+</div>
+
+{% endblock topmenu %}
+
+
 
 {% block content %}
+
 <div id="content">
     <button type="button" id="sidebarCollapse" class="btn btn-primary navbar-btn ">
         <i class="glyphicon glyphicon-align-left"></i>
-        Topics
+        Search
     </button>
 </div>
+
+
 
 
 <div class="main-container">
 <nav id="sidebar">
 
-<div class="wrap">
-   <div class="search">
-     <form action="{% url 'blog:search' %}" method="get" accept-charset="utf-8">
-	  <input type="text" name="q" class="searchTerm" placeholder="Search posts">
-	  <button type="submit" class="searchButton">
-		<i class="glyphicon glyphicon-search"></i>
-	  </button>
-	 </form>
-   </div>
-</div
+    <div class="wrap">
+       <div class="search">
+         <form action="{% url 'blog:search' %}" method="get" accept-charset="utf-8">
+          <input type="text" name="q" class="searchTerm" placeholder="Search posts">
+          <button type="submit" class="searchButton">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+         </form>
+       </div>
+    </div>
 
 	<!-- Sidebar Links -->
-	<ul class="list-unstyled components">
+	<ul class="components sidebar-topics">
 		<li class="active"><a href="{% url 'blog:index' %}">All Topics</a></li>
 		<li><a href="{% url 'blog:topic' 'Lifestyle' %}">Travel &amp; Lifestyle</a></li>
 		<li><a href="{% url 'blog:topic' 'Django' %}">Django</a></li>
