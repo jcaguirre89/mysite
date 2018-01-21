@@ -6,13 +6,11 @@ $("#id_username").change(function() {
 	  data: form.serialize(),
 	  dataType: 'json',
 	  success: function (data) {
-		if (data.is_taken) {
-		  $("#username-check").text(data.message);
-		  $("#username-check").removeClass("user-ok").addClass("user-notok");
+		  $("#id_username").text(data.message);          
+		  if (data.is_taken) {
+		  $("#id_username").removeClass("user-ok").addClass("user-notok");
 		} else {
-		  $("#username-check").text(data.message);
-		  $("#username-check").removeClass("user-notok").addClass("user-ok");
-		  
+		  $("#id_username").removeClass("user-notok").addClass("user-ok");
 		}
 	  }
 	});  

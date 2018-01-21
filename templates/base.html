@@ -35,14 +35,15 @@
 
 <div class="topmenu">
   <ul class="topmenu-left">
-    <li><a href="{% url 'home' %}"><b>HOME</b></a></li>
+    <li><a href="{% url 'about' %}"><b>HOME</b></a></li>
     <li><a href="{% url 'hindsight1:play' %}">GAME</a></li>	  
     <li><a href="{% url 'blog:index' %}">BLOG</a></li>	
-    <li><a href="{% url 'about' %}">ABOUT</a></li>	
     </ul>
     <ul class="topmenu-right">	
 	{% if user.is_authenticated %}
-	<li><a  href="{% url 'myhome'  username=user.username %}">{{ user.username }}: profile</a></li>
+        {% if user.is_superuser %}
+    	<li><a  href="{% url 'myhome'  username=user.username %}">{{ user.username }}: profile</a></li>
+    {% endif %}
     <li><a  href="{% url 'logout' %}">logout</a></li>	    
 	{% else %}
     <li><a  href="{% url 'login' %}" id="topmenu-login">login</a></li>

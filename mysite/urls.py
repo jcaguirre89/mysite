@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from . import views
-from django.contrib.auth.views import login, logout
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -27,7 +26,7 @@ urlpatterns = [
     url(r'^game/', include('hindsight1.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.home, name='home'),
+    url(r'^$', views.about, name='home'),
     url(r'^myhome/(?P<username>[\w\-]+)/', views.myhome, name='myhome'),        
     url(r'^about/$', views.about, name='about'), 
 ]
@@ -36,9 +35,7 @@ urlpatterns = [
 #Add Django site authentication urls (for login, logout, password management)
 urlpatterns += [
     url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^accounts/login/$', login, name='login'),
     url(r'^signup/$', views.signup, name='signup'),
-    url(r'^accounts/logout/$', logout, name='logout'), 
     url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
 
 ]

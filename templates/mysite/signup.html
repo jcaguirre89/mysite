@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load widget_tweaks %}
 
 {% block css %}
 {% endblock %}
@@ -7,16 +8,50 @@
 {% block content %}
 
 <div class="login-container">
-  
-<div class="login-box">
+
+<img class="back-image-signup" src="{% static 'mysite/alice1.jpg' %}" alt="Alice Lakes Mountain"/>
+    
+<div class="signup-box">
   
   <div id="username-check"></div>
+    
   <form method="post" data-validate-username-url="{% url 'validate_username' %}">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button class="btn btn-primary btn-block" type="submit">Sign up</button>
-  </form>
-  
+  {% csrf_token %}
+
+    
+  {% for hidden_field in form.hidden_fields %}
+    {{ hidden_field }}
+  {% endfor %}
+
+  {% if form.non_field_errors %}
+    <div class="alert alert-danger" role="alert">
+      {% for error in form.non_field_errors %}
+        {{ error }}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% for field in form.visible_fields %}
+    <div class="form-group">
+      {{ field.label_tag }}
+
+      {% if form.is_bound %}
+        {% if field.errors %}
+          {% render_field field class="form-control is-invalid" placeholder=field.errors.0 %}
+        {% else %}
+          {% render_field field class="form-control is-valid" %}
+        {% endif %}
+      {% else %}
+        {% render_field field class="form-control user-input" %}
+      {% endif %}
+
+    </div>
+  {% endfor %}
+
+  <button type="submit" class="btn btn-primary">SIgn up</button>
+</form>
+    
+    
 </div>
 </div>
   

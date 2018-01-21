@@ -3,11 +3,30 @@
 
 {% block css %}
 {% load static %}
-<link rel="stylesheet" type"text/css" href="{% static 'hindsight1/style.css' %}" />
+<link rel="stylesheet" type"text/css" href="{% static 'mysite/style.css' %}" />
 {% endblock %}
 
 {% block content %}
+
+<div class="login-container">
+    
+<img class="back-image-login" src="{% static 'mysite/fire.jpg' %}" alt="Canada Festival of lights"/>
+
+
+<div class="login-box">
+    
+<div class="white-text">
+    
 <p>Logged out!</p>  
 
 <a href="{% url 'login'%}">Click here to login again.</a>
-{% endblock %}
+</div>
+    
+</div>
+</div>
+    
+{% endblock %}    
+    
+    
+
+
