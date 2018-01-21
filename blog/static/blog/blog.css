@@ -7,6 +7,10 @@ body {
     overflow:visible;
 }
 
+.topmenu {
+    background: #656565;
+}
+
 	
 .main-container {
     display: flex;
@@ -221,16 +225,16 @@ a[aria-expanded="true"]::before {
 .searchTerm {
   float: left;
   width: 100%;
-  border: 3px solid #00B4CC;
+  border: 3px solid #656565;
   padding: 5px;
   height: 42px;
   border-radius: 0px;
   outline: none;
-  color: #9DBFAF;
+  color: #656565;
 }
 
 .searchTerm:focus{
-  color: #00B4CC;
+  color: #656565;
 }
 
 .searchButton {
@@ -238,8 +242,8 @@ a[aria-expanded="true"]::before {
   right: -50px;
   width: 60px;
   height: 42px;
-  border: 1px solid #00B4CC;
-  background: #00B4CC;
+  border: 1px solid #656565;
+  background: #656565;
   text-align: center;
   color: #fff;
   border-radius: 0px;

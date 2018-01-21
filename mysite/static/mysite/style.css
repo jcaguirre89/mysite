@@ -153,7 +153,7 @@ footer {
 
 .topmenu li a {
     display: block;
-    color: gray;
+    color: #ffffff;
     font: 25px/150% Fira Sans, sans-serif, Helvetica, sans-serif;
     text-align: center;
     padding: 20px 25px;
@@ -161,7 +161,7 @@ footer {
 }
 
 .topmenu li a:hover {
-    background-color: #bafff2;
+	color: rgba(117, 255, 229, 0.71);
 }
 
 .login-container {

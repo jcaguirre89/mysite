@@ -42,7 +42,9 @@ def chart_line_base100(df, labels=None, title='', formatchart='.3%', size=[800,6
                 ),
         yaxis=dict(
                 showgrid=False,
+                showticklabels=False,
                 hoverformat=formatchart,
+                
                 ),
             )
     

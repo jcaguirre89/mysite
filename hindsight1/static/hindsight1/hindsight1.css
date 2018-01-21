@@ -3,6 +3,7 @@ body {
     overflow: visible;
 }
 
+
 .game-container {
 	display: flex;
 	flex-direction: row;
@@ -43,17 +44,18 @@ body {
 }
 
 
-
 .subtopmenu ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #05b7ba;
+    background-color: #245764;
 }
 
 
-
+.topmenu {
+    background: #656565;
+}
 
 .subtopmenu li {
     float: left;
@@ -72,11 +74,7 @@ body {
 
 
 .subtopmenu li a:hover {
-    background-color: #757272;
-}
-
-.subtopmenu li a:active {
-    background-color: #af167c;
+text-decoration: underline;
 }
 
 .result table {
@@ -104,14 +102,14 @@ input[type='range'] {
 
 
 .rangeslider__handle {
-  border-radius: 22px;
-  min-width: 62px;
+  border-radius: 42px;
+  min-width: 22px;
   line-height: 42px;
   text-align: center;
 }
 
 .rangeslider__fill {
-	background: #f40450;
+	background: #245764;
 }
 
 
@@ -119,13 +117,12 @@ input[type='range'] {
     min-width: 400px;
     max-width: 400px;
     height: 100%;
-    background: #fff;
     color: black;
 	border-style: none none none none;
     transition: all 0.3s;
 	padding: 10px;
 	text-align: left;
-	background-color: #efefef;
+	background-color: rgba(255, 255, 255, 0);
 }
 
 #sidebar.active {
@@ -151,7 +148,7 @@ a[aria-expanded="true"]::before {
 
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -250px;
+        margin-left: -400px;
     }
     #sidebar.active {
         margin-left: 0;
