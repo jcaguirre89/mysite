@@ -14,6 +14,47 @@ import os
 import string
 import pandas as pd
 
+
+def chart_line_base100(df, labels=None, title='', formatchart='.3%', size=[800,600]):
+
+    #turn prices into base 100 ts
+    returns = df.pct_change(periods=1).fillna(0)
+    df_100 = 100*(returns+1).cumprod()
+    
+    data=[]
+    for col in df.columns:    
+        trace=go.Scatter(x=df_100.index,
+                         y=df_100[col],
+                         name=col,
+                         mode='lines',
+                         )
+    
+        data.append(trace)
+
+    layout=go.Layout(
+        title=title,
+        height=size[1],
+        width=size[0],
+        showlegend=False,
+        margin=go.Margin(l=75),
+        xaxis=dict(
+                showgrid=False
+                ),
+        yaxis=dict(
+                showgrid=False,
+                hoverformat=formatchart,
+                ),
+            )
+    
+    fig = go.Figure(data=data, layout=layout)
+
+    
+    s=plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
+    s=s.replace('"showLink": true','"showLink": false')
+    
+    return s
+
+
 def chart_line(df, name='', formatchart='.3%', size=[800,600]):
 
     data=[]

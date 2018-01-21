@@ -73,7 +73,7 @@ starting capital in the "Performance Dashboard" tab.</li>
 
 {{ form.as_ul }}
 
-<table>
+<table class="slider-table">
   <tr>
     <td>Total Allocation: <output id="js-result"></output></td>
 	<td><input type="submit" value="Submit Allocation" ></td>
@@ -93,7 +93,7 @@ starting capital in the "Performance Dashboard" tab.</li>
 </div>
 
 <div>
-<table>
+<table class="table table-striped table-sector">
   <tr>
     <th>Company</th>
     <th>Sector</th>
@@ -102,8 +102,8 @@ starting capital in the "Performance Dashboard" tab.</li>
   {% for company, items in data.items %}
   <tr>
     <th>Company {{ forloop.counter }} </th>
-    <td>Sector: {{ items.sector }}</td>
-    <td>Industry: {{ items.industry }}</td>
+    <td>{{ items.sector }}</td>
+    <td>{{ items.industry }}</td>
   </tr>
   {% endfor %}
 </table>

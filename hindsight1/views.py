@@ -134,14 +134,17 @@ def play(request):
         form=GameInputForm()
         prices=pd.DataFrame()
         data = {}
-        for company in tickers:
-            data[company]={}
+        col_names = ['Company 1', 'Company 2', 'Company 3', 'Company 4', 'Company 5']
+        for idx, company in enumerate(tickers):
+            data[col_names[idx]]={}
             prices_t=Prices.playprices.price_ts(company, start, date)
             prices=pd.concat([prices, prices_t], axis=1)
-            data[company]['sector']=Sp100.playcompanies.get_sector(company)
-            data[company]['industry']=Sp100.playcompanies.get_industry(company)
-        prices.columns = ['Company 1', 'Company 2', 'Company 3', 'Company 4', 'Company 5']
-        chart_div=chart.chart_line_dropdown(prices, formatchart='$.2f', name='Price', size=[600,400])
+            data[col_names[idx]]['sector']=Sp100.playcompanies.get_sector(company)
+            data[col_names[idx]]['industry']=Sp100.playcompanies.get_industry(company)
+            
+            
+        prices.columns = col_names
+        chart_div=chart.chart_line_base100(prices, labels=data, formatchart='.2f', title='Price Return (rebased to 100)', size=[600,400])
 
             
         return render(request, 'hindsight1/playV5.html', context={'form': form,

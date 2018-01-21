@@ -6,6 +6,8 @@ body {
 .game-container {
 	display: flex;
 	flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
     min-height: 100vh;
 }
 
@@ -114,9 +116,9 @@ input[type='range'] {
 
 
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 100vh;
+    min-width: 400px;
+    max-width: 400px;
+    height: 100%;
     background: #fff;
     color: black;
 	border-style: none none none none;
@@ -127,7 +129,7 @@ input[type='range'] {
 }
 
 #sidebar.active {
-    margin-left: -250px;
+    margin-left: -400px;
 }
 
 a[data-toggle="collapse"] {
@@ -189,3 +191,14 @@ a[aria-expanded="true"]::before {
 
 
 
+
+.slider-table tr {
+    border: 0;
+}
+
+
+
+.table-sector tr:first-child th {
+    background: #3c3c3c;
+    color: #e8e8e8;
+}
