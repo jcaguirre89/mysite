@@ -1,10 +1,11 @@
 
 body {
-	font: normal 15px/150% Lato, Helvetica, sans-serif;
+	font: normal 16px/150% Lato, Helvetica, sans-serif;
     position: relative;
-    margin: 0;	
+    margin: 0;
     overflow: hidden;
 }
+
 
 
 html {
@@ -23,9 +24,6 @@ footer {
 	opacity: 0.9;
 	color: white;
 	position: relative;
-	right: 0;
-	bottom: 0;
-	left: 0;
 	padding: 1rem;
 }
 
@@ -63,7 +61,7 @@ footer {
 	justify-content: space-between;
 	margin-top: 20px;
     width: 100vw;
-    height: 70vh;
+    max-height: 100vh;
     position: relative;
 }
 
@@ -71,14 +69,14 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-	background-color: rgba(255, 255, 255, 0.33);
+	background-color: rgba(114, 146, 169, 0.33);
 	border-radius: 0px;
 	padding: 25px;
 	margin: auto;
 	width: 50%;
 	min-height: 75vh;
     font: 1.5em Lato Sans, sans-serif, Helvetica, sans-serif;
-	color: #333333;
+	color: #ffffff;
 	}
 
 	
@@ -95,13 +93,13 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;	
-	background-color: rgba(50, 186, 160, 0.33);
+	background-color: rgba(87, 153, 137, 0.33);
 	color: #efefef;
 	border-radius: 0px;
 	padding: 25px;
 	margin-right: 100px;
 	height: 30%;
-    font: 2.5em Lato Sans, sans-serif, Helvetica, sans-serif;
+    font: 2em Lato Sans, sans-serif, Helvetica, sans-serif;
 }
 
 .about-selectors:hover {

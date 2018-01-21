@@ -1,7 +1,12 @@
 
+body {
+    overflow: visible;
+}
+
 .game-container {
 	display: flex;
 	flex-direction: row;
+    min-height: 100vh;
 }
 
 .game-sidebar {

@@ -4,6 +4,7 @@ img {
 	
 body {
 	background: white;
+    overflow:visible;
 }
 
 	
@@ -139,11 +140,12 @@ body {
     min-width: 300px;
     max-width: 300px;
     height: 100%;
-    background: rgba(255,255,255,0.65);
+    background: rgba(255, 255, 255, 0.5);
     color: black;
 	border-style: none none none none;
     transition: all 0.3s;
-    position: absolute;}
+    position: absolute;
+}
 
 .sidebar-topics {
     margin-top: 0;
@@ -188,13 +190,11 @@ a[aria-expanded="true"]::before {
     transition: all 0.5s;
 }
 
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: #fff;
-}
-
 #sidebar ul.components {
+    margin-top: -5px;
     padding: 20px 0;
+    background: rgba(255, 255, 255, 1);
+
 }
 
 
@@ -223,8 +223,8 @@ a[aria-expanded="true"]::before {
   width: 100%;
   border: 3px solid #00B4CC;
   padding: 5px;
-  height: 36px;
-  border-radius: 5px;
+  height: 42px;
+  border-radius: 0px;
   outline: none;
   color: #9DBFAF;
 }
@@ -237,12 +237,12 @@ a[aria-expanded="true"]::before {
   position: absolute;  
   right: -50px;
   width: 60px;
-  height: 36px;
+  height: 42px;
   border: 1px solid #00B4CC;
   background: #00B4CC;
   text-align: center;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 0px;
   cursor: pointer;
   font-size: 20px;
 }
@@ -250,6 +250,6 @@ a[aria-expanded="true"]::before {
 /*Resize the wrap to see the search bar change!*/
 .wrap{
   width: 80%;
-  height: 40px;
+  height: 46px;
   position: relative;
 }
