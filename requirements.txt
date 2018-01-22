@@ -20,6 +20,7 @@ django-pandas==0.4.5
 django-photologue==3.8.1
 django-postgres-copy==2.0.3
 django-sortedm2m==1.5.0
+django-widget-tweaks==1.4.1
 docutils==0.14
 entrypoints==0.2.3
 ExifRead==2.1.2
