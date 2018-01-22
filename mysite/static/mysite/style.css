@@ -18,13 +18,42 @@ h1 {
 } 
 	
 footer {
-	width: 100%;
-	height: 200px;
+    display: flex;
+	width: 100vw;
+	height: 8em;
 	background: #6e7377;
-	opacity: 0.9;
-	color: white;
-	position: relative;
-	padding: 1rem;
+    margin: auto;
+    
+}
+
+footer a {
+
+}
+
+.footer-left {
+    width: 50%;
+    display: flex;
+    align-items: center; 
+    justify-content:center;
+}
+
+.footer-left i {
+    color: white;
+    margin-left: 15px;
+    
+}
+
+.footer-right {
+    width: 50%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding-right: 50px;
+}
+
+.footer-right a {
+    padding: 10px;
+    display: block;
 }
 
 .about {
@@ -250,4 +279,55 @@ footer {
 .white-text a, .white-text p {
     color: white;
     font-size: 2em;
+}
+
+.ranking-container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+    justify-content: center;
+    align-items: center;	
+	border-radius: 0px;
+	padding: 25px;
+    position: relative;
+}
+
+.ranking-box {
+	display: flex;
+	flex-direction: column;
+	background: rgba(255, 255, 255);
+    padding: 50px;
+	border: 1px solid #cecece;
+}
+
+.social-icon {
+    color: white;
+}
+
+.social-icon:hover {
+    color: aqua;
+}
+
+
+
+.license {
+    color: white;
+    display: inline;
+    padding: 50px;
+    position: relative;
+}
+
+
+.license::before {
+    content: "\f25e";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    padding: 10px;
+}
+
+.license a {
+    text-decoration: underline; 
+    color: white;
 }

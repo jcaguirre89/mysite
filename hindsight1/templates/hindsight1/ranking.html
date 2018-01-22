@@ -4,9 +4,11 @@
 
 {% block content %}
 
-<div class="row">
-<div class="col-md-2 col-md-offset-5">
+<div class="ranking-container">
 
+
+<div class="ranking-box">
+    
 <ol>
   {% for player in rank %}
     <li>{{ player.user }}: ${{ player.capital|floatformat:0|intcomma }}</li>
@@ -15,5 +17,7 @@
 
 </div>
 </div>
+
+
 
 {% endblock content %}
