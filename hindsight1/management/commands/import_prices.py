@@ -9,7 +9,10 @@ from hindsight1.models import Prices
 from django.core.management.base import BaseCommand
 import os
 
+#flip directory in production
 directory = 'C:\\Users\\crist\\mysite\\hindsight1\\static\\hindsight1'
+#directory = 'home/cristobal/mysite/hindsight1/static/hindsight1'
+
 filename = 'sp100_prices.csv'
 fileDir=os.path.join(directory,filename)
 

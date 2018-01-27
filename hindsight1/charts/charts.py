@@ -10,9 +10,6 @@ create plotly charts
 import numpy as np
 import plotly.graph_objs as go
 import plotly
-import os
-import string
-import pandas as pd
 
 
 def chart_line_base100(df, labels=None, title='', formatchart='.3%', size=[800,600]):

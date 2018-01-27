@@ -88,13 +88,7 @@ TEMPLATES = [
 #Static files directories
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static/'),
-    'hindsight1/static/',        
-    'mysite/static/',
-    'mysite/static/images/',
-    'blog/static/images/',
-    'blog/static/',
-    
+    os.path.join(BASE_DIR,'mysite/static/'),    
 ]
 
 
@@ -103,17 +97,23 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': '',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': config('DB_NAME'),
+            'USER': config('DB_USER'),
+            'PASSWORD': config('DB_PASSWORD'),
+            'HOST': config('DB_HOST'),
+            'PORT': '',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default=config('DATABASE_URL')
+        )
+    }
 
 
 # Password validation
@@ -156,6 +156,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mysite/media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = '/home/cristobal/staticfiles'
 
 MARKDOWN_EXTENSIONS = ['markdown.extensions.codehilite', 'markdown.extensions.fenced_code']
