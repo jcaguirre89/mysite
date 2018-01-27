@@ -31,6 +31,9 @@ class Post(models.Model):
     #string for name
     def __str__(self):
         return self.post_title
+    
+    def get_absolute_url(self):
+        return '/blog/'+str(self.id)+'/'
 """
 class Image(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

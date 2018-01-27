@@ -18,7 +18,10 @@ from django.contrib import admin
 from . import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.sitemaps.views import sitemap
 
+from .sitemaps import MainSitemap
+from blog.sitemaps import BlogSitemap
 
 
 urlpatterns = [
@@ -40,7 +43,16 @@ urlpatterns += [
 
 ]
 
+#Add sitemapts
 
+sitemaps = {
+        'blog': BlogSitemap(),
+        'main': MainSitemap(),
+        }
+
+urlpatterns += [
+        url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+]
 
 #Add Photologue
 urlpatterns += [
