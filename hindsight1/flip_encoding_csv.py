@@ -18,8 +18,8 @@ fileDir=os.path.join(directory,filename)
 
 df = pd.read_csv(fileDir, encoding='latin-1')
 
-#df.drop(['Unnamed: 0', 'Unnamed: 0.1'], axis=1, inplace=True)
+#df.drop(['Unnamed: 0'], axis=1, inplace=True)
 
 
 #out as utf8
-#df.to_csv(fileDir, encoding='utf-8')
+#df.to_csv(fileDir, index=False, encoding='utf-8')
