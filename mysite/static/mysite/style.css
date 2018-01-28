@@ -9,7 +9,6 @@ body {
 
 
 html {
-	height: 100%;
 	box-sizing: border-box;
 	}
 
@@ -87,24 +86,24 @@ footer a {
 
 .container-about {
 	display: flex;
-	justify-content: space-between;
-	margin-top: 20px;
-    width: 100vw;
+    flex-direction:column;
+    max-width: 800px;
     max-height: 100vh;
+    text-align: center;
     position: relative;
+    margin-top: 20px;
 }
 
 .about-main-text {
     display: flex;
     justify-content: center;
-    align-items: center;
-	background-color: rgba(114, 146, 169, 0.33);
+    align-items: flex-start;
+	background-color: rgba(255, 255, 255, 0.33);
 	border-radius: 0px;
 	padding: 25px;
 	margin: auto;
-	width: 50%;
-	min-height: 75vh;
-    font: 1.5em Lato Sans, sans-serif, Helvetica, sans-serif;
+	max-width: inherit;
+    font: 1.1em Lato Sans, sans-serif, Helvetica, sans-serif;
 	color: #ffffff;
 	}
 
@@ -112,22 +111,18 @@ footer a {
 
 .container-about-selectors {
 	display: flex;
-	flex-direction:column;
-	justify-content: space-between;
-	width: 40%;
-	min-height: 75vh;
+	width: inherit;
+    justify-content: center;
 }
 
 .about-selectors {
     display: flex;
-    justify-content: center;
-    align-items: center;	
-	background-color: rgba(87, 153, 137, 0.33);
+    justify-content: space-between;
+    align-items: stretch;	
+	background-color: rgba(255, 255, 255, 0.33);
 	color: #efefef;
 	border-radius: 0px;
 	padding: 25px;
-	margin-right: 100px;
-	height: 30%;
     font: 2em Lato Sans, sans-serif, Helvetica, sans-serif;
 }
 
@@ -146,20 +141,23 @@ footer a {
 
 
 .topmenu {
-	background-color: rgba(255, 255, 255, 0.33);
+	background-color: rgba(211, 211, 211, 0.33);
 	border-bottom: 1px solid #e8e8e8;
-    max-height: 100px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
 .topmenu-left {
     display: flex;
+    flex-wrap: wrap;
     height: 100%;
 }
 
 .topmenu-right {
     display: flex;
+    display: flex;
+    flex-wrap: wrap;
     height: 100%;
 }
 	
@@ -261,7 +259,7 @@ footer a {
     right: -9999px;
     margin: auto;
     z-index:-1;
-    width: 1300px;
+    width: 1600px;
 }
 
 .back-image-signup {

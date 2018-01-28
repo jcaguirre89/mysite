@@ -8,7 +8,11 @@ body {
 }
 
 .topmenu {
+    display: flex;
+    flex-wrap: wrap;
     background: #656565;
+    width: 100vw;
+    
 }
 
 	
