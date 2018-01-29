@@ -17,6 +17,31 @@ $("#id_username").change(function() {
   
 });
 
+//show text on mouseover
+//about
+$(document).ready(function () {
+  $(".js-wrap-about")
+      .hover(function() {
+	  $(".js-text-about").toggleClass('hidden');
+        });
+});
+
+//Data Science
+$(document).ready(function () {
+  $(".js-wrap-science")
+      .hover(function() {
+	  $(".js-text-science").toggleClass('hidden');
+        });
+});
+
+//Python and Django
+$(document).ready(function () {
+  $(".js-wrap-django")
+      .hover(function() {
+	  $(".js-text-django").toggleClass('hidden');
+        });
+});
+
 //alternate text
 //about
 $(document).ready(function () {

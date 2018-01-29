@@ -1,15 +1,14 @@
 
 body {
-	font: normal 16px/150% Lato, Helvetica, sans-serif;
     position: relative;
     margin: 0;
-    overflow: hidden;
 }
 
 
 
 html {
 	box-sizing: border-box;
+	font: normal 16px/150% Lato, Helvetica, sans-serif;
 	}
 
 h1 {
@@ -23,10 +22,6 @@ footer {
 	background: #6e7377;
     margin: auto;
     
-}
-
-footer a {
-
 }
 
 .footer-left {
@@ -55,97 +50,18 @@ footer a {
     display: block;
 }
 
-.about {
-	text-align: justify;
-	padding-top: 15px;
-	padding-left: 100px;
-	padding-right: 100px;
-}
-
-.about p {
-	line-height: 24px;
-	margin-bottom: 10px;
-}
-
-.about-home {
-	position: relative;
-	text-align: center;
-}
-
-.about-home p {
-	position: absolute;
-	top: 20%;
-	left: 20%;
-	right: 20%;
-	color: white;
-}
-
-.about-home img {
-	width: 100%;
-}
-
-.container-about {
-	display: flex;
-    flex-direction:column;
-    max-width: 800px;
-    max-height: 100vh;
-    text-align: center;
-    position: relative;
-    margin-top: 20px;
-}
-
-.about-main-text {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-	background-color: rgba(255, 255, 255, 0.33);
-	border-radius: 0px;
-	padding: 25px;
-	margin: auto;
-	max-width: inherit;
-    font: 1.1em Lato Sans, sans-serif, Helvetica, sans-serif;
-	color: #ffffff;
-	}
-
-	
-
-.container-about-selectors {
-	display: flex;
-	width: inherit;
-    justify-content: center;
-}
-
-.about-selectors {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;	
-	background-color: rgba(255, 255, 255, 0.33);
-	color: #efefef;
-	border-radius: 0px;
-	padding: 25px;
-    font: 2em Lato Sans, sans-serif, Helvetica, sans-serif;
-}
-
-.about-selectors:hover {
-	background-color: rgba(117, 255, 229, 0.71);
-	color: #686868;
-    transition: all 0.5s;
-    cursor: pointer;
-}
-
 .selected {
 	background-color: rgba(117, 255, 229, 0.71);
 	color: #686868;
 }
 
-
-
 .topmenu {
-	background-color: rgba(211, 211, 211, 0.33);
+	background-color: #656565;
 	border-bottom: 1px solid #e8e8e8;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    font: 1.8em Fira Sans, sans-serif, Helvetica, sans-serif;
 }
 
 .topmenu-left {
@@ -180,11 +96,10 @@ footer a {
 
 .topmenu li a {
     display: block;
-    color: #ffffff;
-    font: 25px/150% Fira Sans, sans-serif, Helvetica, sans-serif;
     text-align: center;
     padding: 20px 25px;
     text-decoration: none;
+    color: #ffffff;
 }
 
 .topmenu li a:hover {
@@ -251,16 +166,7 @@ footer a {
     color: black;    
 }
 
-.back-image-login {
-    position: absolute;
-    top: -9999px;
-    bottom: -9999px;
-    left: -9999px;
-    right: -9999px;
-    margin: auto;
-    z-index:-1;
-    width: 1600px;
-}
+
 
 .back-image-signup {
     position: absolute;
@@ -328,4 +234,44 @@ footer a {
 .license a {
     text-decoration: underline; 
     color: white;
+}
+
+.main-wrapper {
+    position: relative;
+    width: inherit;
+    margin-top: 20px;
+    overflow: hidden;
+    max-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    
+.main-wrapper:hover {
+    background-color: rgba(80, 80, 80, 0.84);
+}
+
+.about-text {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+	padding: 25px;
+	margin: auto;
+    max-width: 500px;
+	color: #ffffff;
+}
+
+.back-image-about {
+    position: relative;
+    z-index:-1;
+    width: 100%;
+}
+.hidden {
+    display: none;
+}
+
+.about-title {
+    font: 2em Archivo Black, sans-serif;
 }
