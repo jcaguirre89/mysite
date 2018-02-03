@@ -270,6 +270,7 @@ footer {
 	margin: auto;
     max-width: 500px;
 	color: #ffffff;
+    z-index: 10;
 }
 
 .about-text p {
@@ -278,7 +279,7 @@ footer {
 
 .back-image-about {
     position: relative;
-    z-index:-1;
+    z-index: -1;
     width: 100%;
 }
 
@@ -292,6 +293,14 @@ footer {
     font: 2em Archivo Black, sans-serif;
     margin-top: 100px;
 }
+
+@media screen and (max-width: 800px) {
+    .about-title {
+    margin-top: 20px;
+    }
+}
+    
+    
 
 
 .login-outer {

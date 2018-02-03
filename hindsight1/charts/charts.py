@@ -32,8 +32,9 @@ def chart_line_base100(df, labels=None, title='', formatchart='.3%', size=[800,6
         title=title,
         height=size[1],
         width=size[0],
-        showlegend=False,
+        showlegend=True,
         margin=go.Margin(l=75),
+        legend=dict(x=-0.3, y=1),
         xaxis=dict(
                 showgrid=False
                 ),
