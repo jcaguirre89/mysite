@@ -21,24 +21,27 @@ $("#id_username").change(function() {
 //about
 $(document).ready(function () {
   $(".js-wrap-about")
-      .hover(function() {
+      .click(function() {
 	  $(".js-text-about").toggleClass('hidden');
+      $(this).toggleClass('darken');
         });
 });
 
 //Data Science
 $(document).ready(function () {
   $(".js-wrap-science")
-      .hover(function() {
+      .click(function() {
 	  $(".js-text-science").toggleClass('hidden');
+      $(this).toggleClass('darken');
         });
 });
 
 //Python and Django
 $(document).ready(function () {
   $(".js-wrap-django")
-      .hover(function() {
+      .click(function() {
 	  $(".js-text-django").toggleClass('hidden');
+      $(this).toggleClass('darken');
         });
 });
 
