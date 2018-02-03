@@ -31,6 +31,7 @@ body {
 	background: white;
 	align-items: center;
 	width: 95vw;
+    margin-left: 15px;
 }
 
 .post-container {

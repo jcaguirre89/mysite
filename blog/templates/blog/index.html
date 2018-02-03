@@ -12,31 +12,29 @@
 {% for post in posts %}
 
 
-<div class="post-container"> 
+<div class="post-and-image"> 
   <div class="extras-container">
     <p id="extra-topic">{{post.topic }}</p>
 	<p>{{post.pub_date|naturalday }}</p>  
 
   </div>
   
-  <div class="post-and-image">  
-	  <div class="thumbnail">
-		<img src="{{ post.image.url }}" />
-	  </div>
-
-	  <div id="summary">	  
-	    <h3><a href="{% url 'blog:detail' post.id %}" id="index-post-title">{{ post.post_title }}</a></h3>
-	    <p>{{post.summary }}</p>
-		{% if post.tags %}
-		<ul id="tags">
-		  <li><a href="{% url 'blog:tags' post.tags.0 %}">{{ post.tags.0 }}</a></li>
-		  <li><a href="{% url 'blog:tags' post.tags.1 %}">{{ post.tags.1 }}</a></li>
-		  <li><a href="{% url 'blog:tags' post.tags.2 %}">{{ post.tags.2 }}</a></li>
-		</ul>
-		{% endif %}  
-	  </div>
-  
+  <div class="thumbnail">
+    <img src="{{ post.image.url }}" />
   </div>
+
+  <div id="summary">	  
+    <h3><a href="{% url 'blog:detail' post.id %}" id="index-post-title">{{ post.post_title }}</a></h3>
+    <p>{{post.summary }}</p>
+    {% if post.tags %}
+    <ul id="tags">
+      <li><a href="{% url 'blog:tags' post.tags.0 %}">{{ post.tags.0 }}</a></li>
+      <li><a href="{% url 'blog:tags' post.tags.1 %}">{{ post.tags.1 }}</a></li>
+      <li><a href="{% url 'blog:tags' post.tags.2 %}">{{ post.tags.2 }}</a></li>
+    </ul>
+    {% endif %}  
+  </div>
+
   
 </div>
 

@@ -18,17 +18,19 @@ h1 {
 footer {
     display: flex;
 	width: 100vw;
-	height: 8em;
+	min-height: 8em;
 	background: #6e7377;
     margin: auto;
+    align-items: flex-start; 
+
     
 }
 
 .footer-left {
     width: 50%;
     display: flex;
-    align-items: center; 
-    justify-content:center;
+    align-items: flex-start; 
+    justify-content: flex-start;
 }
 
 .footer-left i {
@@ -50,6 +52,28 @@ footer {
     display: block;
 }
 
+.license {
+    color: white;
+    display: inline;
+    padding: 10px;
+    position: relative;
+}
+
+
+.license::before {
+    content: "\f25e";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+    padding: 10px;
+}
+
+.license a {
+    text-decoration: underline; 
+    color: white;
+}
+
 .selected {
 	background-color: rgba(117, 255, 229, 0.71);
 	color: #686868;
@@ -66,7 +90,6 @@ footer {
 
 .topmenu-left {
     display: flex;
-    flex-wrap: wrap;
     height: 100%;
 }
 
@@ -131,7 +154,7 @@ footer {
 	background: rgba(255, 255, 255, 0.51);
     padding: 50px;
 	border: 1px solid #cecece;
-    width: 600px;
+    width: 400px;
 }
 
 .login-inputs {
@@ -214,27 +237,7 @@ footer {
 
 
 
-.license {
-    color: white;
-    display: inline;
-    padding: 50px;
-    position: relative;
-}
 
-
-.license::before {
-    content: "\f25e";
-    font-family: FontAwesome;
-    font-style: normal;
-    font-weight: normal;
-    text-decoration: inherit;
-    padding: 10px;
-}
-
-.license a {
-    text-decoration: underline; 
-    color: white;
-}
 
 .main-wrapper {
     position: relative;
@@ -244,7 +247,13 @@ footer {
     max-height: 500px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+}
+
+@media screen and (max-width: 800px) {
+    .main-wrapper {
+        overflow: scroll;
+    }
 }
     
 .darken {
@@ -272,12 +281,21 @@ footer {
     z-index:-1;
     width: 100%;
 }
+
 .hidden {
-    display: none;
+   position: absolute !important;
+   top: -9999px !important;
+   left: -9999px !important;
 }
 
 .about-title {
     font: 2em Archivo Black, sans-serif;
-    margin-bottom: 15px;
+    margin-top: 100px;
 }
 
+
+.login-outer {
+    position: relative;
+    max-height: 100vh;
+    overflow: hidden;
+}
