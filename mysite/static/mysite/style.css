@@ -5,7 +5,6 @@ body {
 }
 
 
-
 html {
 	box-sizing: border-box;
 	font: normal 16px/150% Lato, sans-serif, Helvetica, sans-serif;
@@ -242,18 +241,22 @@ footer {
 .main-wrapper {
     position: relative;
     width: inherit;
-    margin-top: 20px;
     overflow: hidden;
-    max-height: 500px;
+    margin-top: 20px;
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
     .main-wrapper {
         overflow: scroll;
     }
+}
+
+@media screen and (max-width: 500px) {
+
 }
     
 .darken {
@@ -269,6 +272,7 @@ footer {
 	padding: 25px;
 	margin: auto;
     max-width: 500px;
+    max-height: 300px;
 	color: #ffffff;
     z-index: 10;
 }
@@ -294,17 +298,19 @@ footer {
     margin-top: 100px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 500px) {
     .about-title {
     margin-top: 20px;
     }
 }
     
-    
-
 
 .login-outer {
     position: relative;
     max-height: 100vh;
     overflow: hidden;
+}
+
+.inner-container {
+    overflow: scroll;
 }
