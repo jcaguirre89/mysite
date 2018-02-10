@@ -8,20 +8,22 @@
 
 {% block content %}
 
+<div class="login-outer">
+
+<img class="back-image-signup" src="{% static 'mysite/fire.jpg' %}" alt="Vancouver Festival of Lights"/>
+
 <div class="login-container">
     
-<img class="back-image-login" src="{% static 'mysite/fire.jpg' %}" alt="Canada Festival of lights"/>
 
 
-<div class="login-box">
-    
-<div class="white-text">
+<div class="login-box logout-text">
     
 <p>Logged out!</p>  
 
 <a href="{% url 'login'%}">Click here to login again.</a>
-</div>
+
     
+</div>
 </div>
 </div>
     
