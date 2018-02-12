@@ -315,3 +315,11 @@ footer {
     font-size: 2em;
     color: #000000;
 }
+
+.pass-reset {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
