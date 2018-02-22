@@ -56,7 +56,17 @@ def chart_line_base100(df, labels=None, title='', formatchart='.3%', size=[800,6
 
 
 def chart_line(df, name='', formatchart='.3%', size=[800,600]):
-
+    """
+    creates a line chart for each column in the dataframe, using the index as X axis. 
+    inputs:
+    df: a dataframe of each series you want to plot, with the index as your desired X axis.
+    formatchart: the formatting you want the series to have. default is 3 decimal place percentage.
+    size: the chart's size, in pixels. [width, height]
+    
+    output:
+    s: the plotly chart html code, as a string.
+    """
+    
     data=[]
     for col in df.columns:    
         trace=go.Scatter(x=df.index,
