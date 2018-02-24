@@ -15,7 +15,8 @@
 <div class="post-and-image"> 
   <div class="extras-container">
     <p id="extra-topic">{{post.topic }}</p>
-	<p>{{post.pub_date|naturalday }}</p>  
+	<p>{{post.pub_date|naturalday }}</p> 
+    <span class="disqus-comment-count" data-disqus-identifier="your_disqus_identifier"> A <!-- Count will be inserted here --> </span>
 
   </div>
   
@@ -44,6 +45,8 @@
 
 
 </div>
+    
+  <script id="dsq-count-scr" src="//dodgingbias.disqus.com/count.js" async></script>
 
 
 {% endblock post %}
