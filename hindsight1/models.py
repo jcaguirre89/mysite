@@ -1,22 +1,18 @@
-from django.db import models
-from django.forms import ModelForm, formset_factory
-from postgres_copy import CopyManager
 import datetime
-import numpy as np
 from pandas.tseries.offsets import BDay
-import pandas as pd
-#from .new_play import NewPlay
 from random import randint
-from django.db.models.aggregates import Count
+
+from django.db import models
+
 from django.contrib.postgres.fields import ArrayField
 from django_pandas.io import read_frame
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from psycopg2.extras import NumericRange
-#import floppyforms as forms
 from django import forms
 from django.utils import timezone
+
+from postgres_copy import CopyManager
 
 
 class Sp100QuerySet(models.QuerySet):
@@ -72,16 +68,16 @@ class PricesQuerySet(models.QuerySet):
     def rand_date(self):
         min_date = self.min_date()
         max_date = self.max_date()
-        checks=True
-        while checks==True:
+        checks = True
+        while checks:
             count = self.all().count()
             random_index = randint(0, count - 1)
             rand_date = self.all()[random_index].date
-            #Check date has 6M of forward and backwards history
-            ret_start=Prices.start_date(rand_date)
-            ret_end=Prices.end_date(rand_date)
-            if ret_start>=min_date and ret_end<=max_date:
-                checks=False  
+            # Check date has 6M of forward and backwards history
+            ret_start = Prices.start_date(rand_date)
+            ret_end = Prices.end_date(rand_date)
+            if ret_start >= min_date and ret_end <= max_date:
+                checks = False
         return rand_date
 
     def random_company(self, date):
@@ -147,8 +143,6 @@ class PricesQuerySet(models.QuerySet):
         price_t0 = self.get(ticker=t, date=start).price
         ror=price_t1/price_t0-1
         return ror
-    
-
 
 
 class Prices(models.Model):
@@ -159,7 +153,7 @@ class Prices(models.Model):
     playprices = PricesQuerySet.as_manager()
 
     def __str__(self):
-        return '{} {}'.format(self.ticker,self.date.strftime('%m/%d/%Y'))
+        return '{} {}'.format(self.ticker, self.date.strftime('%m/%d/%Y'))
     
     #6 month prior date
     def start_date(rand_date):
@@ -171,8 +165,8 @@ class Prices(models.Model):
         ret_start=(rand_date+BDay(130)).date()
         return ret_start
 
+
 class PlayRecordQuerySet(models.QuerySet):
-    
     def strategy_ror(self, weights, tickers=None, date=None, play_id=None):
         if play_id != None:
             tickers = self.get(pk=play_id).companies
@@ -235,8 +229,6 @@ class Profile(models.Model):
     
     def __str__(self):
         return self.user
-    
-
 
 
 @receiver(post_save, sender=User)

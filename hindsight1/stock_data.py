@@ -4,7 +4,8 @@ Created on Sat Dec 16 18:00:39 2017
 
 @author: crist
 """
-import urllib.request, json 
+import urllib.request
+import json
 from pandas_datareader import data
 import datetime
 import pandas as pd

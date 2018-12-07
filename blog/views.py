@@ -1,13 +1,7 @@
-from django.http import HttpResponse
-from django.http import HttpResponseRedirect
-from django.template import loader
 from django.shortcuts import render
 from django.shortcuts import get_object_or_404
-from django.urls import reverse
-from django.views import generic
 from django.utils import timezone
 from django.contrib.postgres.search import SearchQuery, SearchRank, SearchVector
-
 
 from .models import Post, Topic
 

@@ -8,11 +8,12 @@ create plotly charts
 """
 
 import numpy as np
+
 import plotly.graph_objs as go
 import plotly
 
 
-def chart_line_base100(df, labels=None, title='', formatchart='.3%', size=[800,600]):
+def chart_line_base100(df, title='', formatchart='.3%', size=(800, 600)):
 
     #turn prices into base 100 ts
     returns = df.pct_change(periods=1).fillna(0)
@@ -33,7 +34,7 @@ def chart_line_base100(df, labels=None, title='', formatchart='.3%', size=[800,6
         height=size[1],
         width=size[0],
         showlegend=True,
-        margin=go.Margin(l=75),
+        margin=go.layout.Margin(l=75),
         legend=dict(x=-0.3, y=1),
         xaxis=dict(
                 showgrid=False
@@ -55,7 +56,7 @@ def chart_line_base100(df, labels=None, title='', formatchart='.3%', size=[800,6
     return s
 
 
-def chart_line(df, name='', formatchart='.3%', size=[800,600]):
+def chart_line(df, name='', formatchart='.3%', size=(800, 600)):
     """
     creates a line chart for each column in the dataframe, using the index as X axis. 
     inputs:
@@ -67,9 +68,9 @@ def chart_line(df, name='', formatchart='.3%', size=[800,600]):
     s: the plotly chart html code, as a string.
     """
     
-    data=[]
+    data = []
     for col in df.columns:    
-        trace=go.Scatter(x=df.index,
+        trace = go.Scatter(x=df.index,
                          y=df[col],
                          name=col,
                          mode='lines',
@@ -82,7 +83,7 @@ def chart_line(df, name='', formatchart='.3%', size=[800,600]):
         height=size[1],
         width=size[0],
         #legend=dict(orientation='h'),
-        margin=go.Margin(l=75),
+        margin=go.layout.Margin(l=75),
         xaxis=dict(
                 showgrid=False
                 ),
@@ -94,76 +95,15 @@ def chart_line(df, name='', formatchart='.3%', size=[800,600]):
     
     fig = go.Figure(data=data, layout=layout)
 
-    
-    s=plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
-    s=s.replace('"showLink": true','"showLink": false')
-    
-    return s
-
-
-
-def chart_line_dropdown(df, name='', formatchart='.3%', size=[800,600]):
-
-    cols=df.columns
-    generic_meta_list={}
-    aux_list=[]
-    for freq in cols:
-        aux_list=list(np.array(cols)==freq)
-        generic_meta_list[freq]=[val for val in aux_list]
-    
-    simple_list=list(np.array(cols)==cols[0])
-    
-    
-
-    
-    data=[]
-    for idx, col in enumerate(cols):    
-        trace=go.Scatter(x=df.index,
-                         y=df[col],
-                         mode='lines',
-                         visible=simple_list[idx]
-                         )
-    
-        data.append(trace)
-    
-    menus=[]
-    for col in cols:
-        menu_aux=dict(label = col,
-                       method = 'update',
-                       args = [{'visible': generic_meta_list[col]}, {'title':name}])
-        menus.append(menu_aux)
-    
-    
-    
-    updatemenus =[dict(active=0, buttons=menus, x=-0.2, y=1)]
-    
-    layout=go.Layout(
-        title=name,
-        height=size[1],
-        width=size[0],
-        #legend=dict(orientation='h'),
-        margin=go.Margin(l=75),
-        xaxis=dict(
-                showgrid=False
-                ),
-        yaxis=dict(
-                showgrid=False,
-                hoverformat=formatchart,
-                ),
-        updatemenus=updatemenus
-            )
-    
-    fig = go.Figure(data=data, layout=layout)
-    
-    
-    s=plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
-    s=s.replace('"showLink": true','"showLink": false')
+    s = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
+    s = s.replace('"showLink": true', '"showLink": false')
     
     return s
 
-def chart_bar(y, title='', categories=None, formatchart='.3%', size=[800,600]):
 
-    if categories==None:
+def chart_bar(y, title='', categories=None, formatchart='.3%', size=(800, 600)):
+
+    if categories is None:
         categories = np.arange(y.shape[0])
     
     trace1 = go.Bar(
@@ -180,8 +120,7 @@ def chart_bar(y, title='', categories=None, formatchart='.3%', size=[800,600]):
                 
     data = [trace1]
 
-
-    layout=go.Layout(
+    layout = go.Layout(
         title=title,
         height=size[1],
         width=size[0],
@@ -191,7 +130,6 @@ def chart_bar(y, title='', categories=None, formatchart='.3%', size=[800,600]):
             showgrid=False,
             #zeroline=False,
             #showline=False,
-            autotick=True,
             ticks='',
             showticklabels=False,
         ),
@@ -200,7 +138,6 @@ def chart_bar(y, title='', categories=None, formatchart='.3%', size=[800,600]):
             showgrid=False,
             #zeroline=False,
             #showline=False,
-            autotick=True,
             ticks='',
             showticklabels=False,
             hoverformat=formatchart,
@@ -209,13 +146,13 @@ def chart_bar(y, title='', categories=None, formatchart='.3%', size=[800,600]):
     
     fig = go.Figure(data=data, layout=layout)
 
-    
-    s=plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
-    s=s.replace('"showLink": true','"showLink": false')
+    s = plotly.offline.plot(fig, include_plotlyjs=False, output_type='div')
+    s = s.replace('"showLink": true','"showLink": false')
     
     return s
 
-def chart_bar_cum(y, y_cum, title='', categories=False, formatchart='.3%', size=[800,600]):
+
+def chart_bar_cum(y, y_cum, title='', categories=False, formatchart='.3%', size=(800, 600)):
 
     if categories:
         categories = y.index
@@ -256,7 +193,6 @@ def chart_bar_cum(y, y_cum, title='', categories=False, formatchart='.3%', size=
             showgrid=False,
             #zeroline=False,
             #showline=False,
-            autotick=True,
             ticks='',
             showticklabels=False,
         ),
@@ -265,7 +201,6 @@ def chart_bar_cum(y, y_cum, title='', categories=False, formatchart='.3%', size=
             showgrid=False,
             #zeroline=False,
             #showline=False,
-            autotick=True,
             ticks='',
             showticklabels=False,
             hoverformat=formatchart,
@@ -275,7 +210,6 @@ def chart_bar_cum(y, y_cum, title='', categories=False, formatchart='.3%', size=
             showgrid=False,
             #zeroline=False,
             #showline=False,
-            autotick=True,
             ticks='',
             showticklabels=False,
             hoverformat='.1%',
@@ -291,9 +225,3 @@ def chart_bar_cum(y, y_cum, title='', categories=False, formatchart='.3%', size=
     
     return s
 
-
-
-
-#if __name__=='__main__':
-
-    

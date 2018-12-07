@@ -10,8 +10,6 @@ from django.conf.urls import url
 
 from . import views
 
-#this tells django these urls belong to the 'hindsight1' app, when referencing
-#from a template with the {%url%} tag. 
 app_name = 'blog'
 
 urlpatterns = [

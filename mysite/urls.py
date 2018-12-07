@@ -25,7 +25,6 @@ from blog.sitemaps import BlogSitemap
 
 
 urlpatterns = [
-    url(r'^photos/', include('photos.urls')),
     url(r'^game/', include('hindsight1.urls')),
     url(r'^blog/', include('blog.urls')),
     url(r'^admin/', admin.site.urls),
@@ -52,11 +51,6 @@ sitemaps = {
 
 urlpatterns += [
         url(r'^sitemap\.xml$', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
-]
-
-#Add Photologue
-urlpatterns += [
-    url(r'^photologue/', include('photologue.urls', namespace='photologue')),
 ]
 
 #Add Markdown

@@ -35,7 +35,6 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS = [
-    'photos.apps.PhotosConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -49,13 +48,10 @@ INSTALLED_APPS = [
     'hindsight1',
     'blog',
     'markdownx',
-    'photologue',
-    'sortedm2m',
-    'imagekit',
     'widget_tweaks',
 ]
 
-SITE_ID=1
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -171,6 +167,6 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=True, cast=bool)
 
-DEFAULT_FROM_EMAIL = 'Dodging Bias <noreply@dodgingbias.com>'
-EMAIL_SUBJECT_PREFIX = '[Dodging Bias] '
+DEFAULT_FROM_EMAIL = 'Cristobal Aguirre <noreply@cristobal-aguirre.com>'
+EMAIL_SUBJECT_PREFIX = '[Cristobal Aguirre] '
 
