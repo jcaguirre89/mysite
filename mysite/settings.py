@@ -31,6 +31,8 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
+# admins list for emails on errors
+ADMINS = [('Cristobal', 'cristobal.aguirre89@gmail.com', ), ]
 
 # Application definition
 
