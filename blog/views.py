@@ -8,9 +8,7 @@ from .models import Post, Topic
 def search(request):
     keywords = request.GET.get('q')
     
-    qs = Post.objects.filter(
-                             pub_date__lte=timezone.now()
-                             ).order_by('pub_date')
+    qs = Post.objects.filter(pub_date__lte=timezone.now()).order_by('pub_date')
     
     if keywords:
         query = SearchQuery(keywords)
