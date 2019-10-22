@@ -17,7 +17,7 @@ mistune==0.8.4
 nbformat==4.4.0
 numpy==1.15.4
 pandas==0.23.4
-Pillow==5.3.0
+Pillow==6.2.0
 plotly==3.4.2
 psycopg2==2.7.6.1
 Pygments==2.3.0
